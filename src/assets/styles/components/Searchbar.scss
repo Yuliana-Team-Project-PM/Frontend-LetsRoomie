@@ -1,0 +1,24 @@
+@import '../Vars.scss';
+
+.Searchbar {
+    // background: red;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 3em;
+
+    &__icon {
+        // width: 30px;
+        
+        color: $primary-color;
+    }
+
+    &__input {
+        width: 39%;
+        padding: .5em;
+        border-radius: 7px;
+        border: 1px solid $primary-color;
+        background: transparent;
+        font-family: inherit;
+    }
+}

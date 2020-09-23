@@ -1,8 +1,12 @@
 import React from 'react';
 
+import '../assets/styles/App.scss';
+
+import Home from '../pages/Home';
+
 const App = () => {
     return(
-        'App Lets Rommie'
+        <Home />
     )
 };
 

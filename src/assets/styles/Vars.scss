@@ -1,1 +1,33 @@
 // Variables del proyecto
+
+//Fonts
+@import url('https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+$main-font: 'Karla', sans-serif;
+
+
+//Colors
+$primary-color: #3D1BC5;
+$secondary-color: #E94560;
+$gray-color: #F2F2F2;
+$dark-color: #313153;
+$super-white: #FFFFFF;
+
+//border
+$border-button: 2px solid $secondary-color;
+
+
+
+@mixin base-button ($color, $bg-color, $border-color) {
+    border: none;
+    padding: 0.667rem;
+    margin: 0.800rem;
+    width: auto;
+    border-radius: 10px;
+    font-family: inherit;
+    font-weight: bold;
+    cursor: pointer;
+    color: $color;
+    background: $bg-color;
+    border: $border-color;
+}

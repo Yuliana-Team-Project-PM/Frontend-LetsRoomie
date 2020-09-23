@@ -1,0 +1,23 @@
+@import '../Vars.scss';
+
+.Header {
+    background: $super-white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 70px;
+    padding: 0 3.5em;
+
+    &__logo {
+        width: 150px;
+    }
+
+    &__nav {
+        &--buttonLigth {
+            @include base-button($secondary-color, $super-white, $border-button)
+        }
+        &--button {
+            @include base-button($gray-color, $secondary-color, $border-button)
+        }
+    }
+}
