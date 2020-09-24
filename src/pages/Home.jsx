@@ -12,7 +12,7 @@ const Home = () => {
             <Navbar />
             <Hero />
             <SearchBar />
-            <RoomDescription/>
+            <RoomDescription />
         </>
     );
 };
