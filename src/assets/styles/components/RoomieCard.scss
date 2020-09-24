@@ -1,0 +1,36 @@
+/*
+    Convertir en sass
+*/
+.RoomieCard{
+    width: 580px;
+    margin: 20px;
+    padding: 10px;
+    background-color: #F2F2F2;
+    border-radius: 20px;
+}
+.RoomieCard__header{
+    display: flex;
+    align-items: center;
+}
+.RoomieCard__header-img img{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+}
+.RoomieCard__header h2{
+    margin: 0;
+    margin-left: 10px;  
+}
+.RoomieCard__interests-btn{
+    display: flex;
+}
+.RoomieCard__interests-btn div{
+    margin-right:10px;
+    padding: 5px;
+    color: white;
+    background-color: #3d1bc5;
+    border-radius: 10px;
+}
+.RoomieCard__header-Perfil{
+    color: #e94560;
+}

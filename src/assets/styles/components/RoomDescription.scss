@@ -1,0 +1,22 @@
+.RoomDescription{
+    width: 540px;
+    margin: 20px;
+    padding: 20px;
+    background-color: #F2F2F2;
+    border-radius: 20px;
+}
+
+.RoomDescription-header{
+    display: flex;
+    align-items: center;
+}
+.RoomDescription-header h2{
+    margin-left: 10px;
+    color: #3D1BC5;
+}
+.RoomDescription-descriptionDetail p{
+    margin: 40px 0 40px 0;
+}
+.RoomDescription-desctiptionItems p{
+    margin: 0;
+}
