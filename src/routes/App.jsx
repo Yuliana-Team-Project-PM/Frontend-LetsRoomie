@@ -1,18 +1,20 @@
 import React from 'react';
+import { BrowserRouter, Switch ,Route } from 'react-router-dom'
 
 import '../assets/styles/App.scss';
 
 import Home from '../pages/Home';
 import Login from '../pages/Login';
-import CreateAcountSelect from '../pages/CreateAcountSelect';
-import CreateGuestAccount from '../pages/CreateGuestAccount';
-import CreateHostAccount from '../pages/CreateHostAccount';
-import AddRoom from '../pages/AddRoom';
 
-const App = () => {
+function App(){
     return(
-        <Home />
-    )
+        <BrowserRouter>
+            <Switch>
+                <Route exact path="/" component={Login}/>
+                <Route exact path="/Home" component={Home}/>
+            </Switch>
+        </BrowserRouter>
+    );
 };
 
 export default App;

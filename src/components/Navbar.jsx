@@ -6,9 +6,9 @@ import '../assets/styles/components/Navbar.scss';
 const Navbar = () => {
     return(
         <header className='Header'>
-            <img src={logo} className='Header__logo' />
+            <a href="/"><img src={logo} className='Header__logo' /></a>
             <div className='Header__nav'>
-                <button className='Header__nav--buttonLigth'>Login</button>
+                <a href="/Login"><button className='Header__nav--buttonLigth'>Login</button></a>
                 <button className='Header__nav--button'>Crear cuenta</button>
             </div>
 

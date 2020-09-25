@@ -1,0 +1,15 @@
+.RoomSuguested{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    width:95%;
+    margin: 50px auto;
+}
+.RoomSuguested div{
+    margin: auto;
+    margin-bottom: 5px;
+}
+
+.HomeTitle{
+    text-align: center;
+    color: #3D1BC5;
+}
