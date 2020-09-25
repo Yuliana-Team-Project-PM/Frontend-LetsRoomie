@@ -1,0 +1,100 @@
+@import '../Vars.scss';
+
+.RoomCard {
+    background: $gray-color;
+    width: 417px;
+    height: 438px;
+    padding: 1em 0;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+
+    &__img {
+        // background: red;
+        height: 177px;
+        width: 396px;
+        margin: 0 auto;
+        // padding-top: 1em;
+
+        
+        & img {
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+            border-radius: 20px;
+        }
+    }
+
+    &__title {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 1em 2em;
+
+
+        & h2 {
+            margin: 0 0 7px 0;
+            font-size: 18px;
+            @include title;
+        }
+        & p {
+            margin: 0;
+            font-size: 14px;
+        }
+
+        &--fav {
+            color: $secondary-color;
+            font-size: 1.5em;
+        }
+    }
+
+    &__description {
+        // background: red;
+        padding-left: 2em;
+        
+        &--location, &--price {
+            display: flex;
+            align-items: center;
+            font-size: 14px;
+        }
+    }
+
+    &__roomie {
+        display: flex;
+        padding-left: 2em;
+        padding-right: 2em;
+        margin-top: 1em;
+        justify-content: space-between;
+
+
+        &--profile {
+            display: flex;
+            align-items: center;
+            img {
+                width: 60px;
+                border-radius: 50%;
+            }
+
+            &-text {
+                margin-left: 1em;
+                p {
+                    @include title;
+                    margin: 0;
+                }
+                span {
+                    color: $secondary-color;
+                    font-weight: bold;
+                }
+            }
+
+
+        }
+        &--button {
+            height: 40px;
+            font-size: 14px;
+            @include base-button ($gray-color, $primary-color, $primary-color)
+        }
+    }
+}
