@@ -8,7 +8,7 @@ import CreateHostAccount from '../pages/CreateHostAccount';
 import AddRoom from '../pages/AddRoom';
 const App = () => {
     return(
-        <AddRoom/>
+        <Home/>
     )
 };
 
