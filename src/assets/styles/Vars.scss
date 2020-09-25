@@ -31,3 +31,8 @@ $border-button: 2px solid $secondary-color;
     background: $bg-color;
     border: $border-color;
 }
+
+@mixin title {
+    color: $primary-color;
+    font-weight: bold;
+}
