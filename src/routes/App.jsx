@@ -4,6 +4,7 @@ import { BrowserRouter, Switch , Route } from 'react-router-dom'
 import '../assets/styles/App.scss';
 
 import Home from '../pages/Home';
+import SearchResults from '../pages/SearchResults';
 import Login from '../pages/Login';
 import CreateAcountSelect from '../pages/CreateAcountSelect';
 import CreateHostAcount from '../pages/CreateHostAccount';
@@ -22,6 +23,7 @@ function App(){
                 <Route exact path="/acount-host" component={CreateHostAcount} />
                 <Route exact path="/room-details" component={RoomDetails} />
                 <Route exact path="/favorites" component={Favorites} />
+                <Route exact path="/SearchResults" component={SearchResults} />
                 
             </Switch>
         </BrowserRouter>

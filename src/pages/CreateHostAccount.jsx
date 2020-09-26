@@ -24,6 +24,7 @@ const CreateHostAccount = () => {
                         <input type="text"/>
                         <label htmlFor="">Confirmar contraseña</label>
                         <input type="text"/>
+                        <button className='Login__card--button'>Crear cuenta</button>
                     </form>
                 </div>
                 <div><VerticalBanner ilustration={host} /></div>

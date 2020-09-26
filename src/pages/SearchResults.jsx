@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
@@ -9,11 +10,10 @@ import FavoriteButton from '../components/FavoriteButton';
 
 import '../assets/styles/components/Home.scss';
 
-const Home = () => {
+const SearchResults = () => {
     return(
         <>
             <Navbar />
-            <Hero />
             <SearchBar />
             <section className="RoomSuggestion">
                 <h1 className="RoomSuggestion__title">Tenemos la ubicación ideal para ti</h1>
@@ -34,4 +34,4 @@ const Home = () => {
     );
 };
 
-export default Home;
+export default SearchResults;

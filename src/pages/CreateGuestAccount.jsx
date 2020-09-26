@@ -18,10 +18,13 @@ const CreateGuestAccount = () => {
                         <input type="text"/>
                         <label htmlFor="">Correo electrónico</label>
                         <input type="text"/>
+                        <label htmlFor="">Teléfono</label>
+                        <input type="number"/>
                         <label htmlFor="">Contraseña</label>
                         <input type="text"/>
                         <label htmlFor="">Confirmar contraseña</label>
                         <input type="text"/>
+                        <button className='Login__card--button'>Crear cuenta</button>
                     </form>
                 </div>
                 <div><VerticalBanner ilustration={guest} /></div>
