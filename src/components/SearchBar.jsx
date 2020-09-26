@@ -9,6 +9,7 @@ const SearchBar = () => {
         <div className='Searchbar'>
             <MdSearch className='Searchbar__icon' size='1.75em'/>
             <input type='text' placeholder='Busca tu ubicación preferida' className='Searchbar__input' />
+            <button className='Searchbar__button'>Buscar</button>
         </div>
         
     );
