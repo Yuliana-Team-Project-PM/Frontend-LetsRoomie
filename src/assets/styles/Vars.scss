@@ -36,3 +36,14 @@ $border-button: 2px solid $secondary-color;
     color: $primary-color;
     font-weight: bold;
 }
+
+@mixin container ($max-width) {
+    display: grid;
+    grid-template-columns: minmax(auto, $max-width);
+    justify-content: center;
+}
+
+@mixin grid ($colums) {
+    display: grid;
+    grid-template-columns: repeat($colums, minmax(auto, 1fr));
+}

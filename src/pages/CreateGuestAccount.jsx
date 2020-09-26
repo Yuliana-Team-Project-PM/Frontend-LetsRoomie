@@ -1,11 +1,15 @@
 import React from 'react';
 
+import LogoHeader from '../components/LogoHeader';
 import VerticalBanner from '../components/VerticalBanner';
 import '../assets/styles/components/CreateGuestAccount.scss';
 
+import guest from '../assets/static/guest.png'
+
 const CreateGuestAccount = () => {
     return(
-        <>  
+        <> 
+            <LogoHeader /> 
             <div className="CreateGuestAccount">
                 <div className="CreateGuestAccount-form">
                     <h2>Cuenta de huesped</h2>
@@ -20,7 +24,7 @@ const CreateGuestAccount = () => {
                         <input type="text"/>
                     </form>
                 </div>
-                <div><VerticalBanner /></div>
+                <div><VerticalBanner ilustration={guest} /></div>
             </div>
         </>
     );

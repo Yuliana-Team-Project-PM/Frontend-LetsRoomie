@@ -1,0 +1,9 @@
+@import '../Vars.scss';
+
+.Favorites {
+    @include container(1200px);
+
+    &__title {
+        @include title;
+    }
+}

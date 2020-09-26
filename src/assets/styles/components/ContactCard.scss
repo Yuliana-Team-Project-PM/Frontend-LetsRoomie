@@ -1,0 +1,17 @@
+@import '../Vars.scss';
+
+.ContactCard {
+    background: $gray-color;
+    border-radius: 15px;
+    display: grid;
+    place-content: center;
+
+    &__title {
+        @include title;
+    }
+
+
+    &__button {
+        @include base-button($gray-color, $secondary-color, $border-button);
+    }
+}

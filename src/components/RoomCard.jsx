@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 import { AiOutlineHeart } from 'react-icons/ai'; 
 import { MdLocationOn } from 'react-icons/md'; 
@@ -31,7 +32,9 @@ const RoomCard = () => {
                         <span>ROOMIE</span>
                     </div>
                 </div>
-                <button className='RoomCard__roomie--button'>Ver más</button>
+                <Link to='room-details'>
+                    <button className='RoomCard__roomie--button'>Ver más</button>
+                </Link>
             </div>
         </div>
     );

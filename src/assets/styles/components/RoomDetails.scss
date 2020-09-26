@@ -1,0 +1,13 @@
+@import '../Vars.scss';
+
+.RoomDetails {
+    @include container(1200px);
+
+    &__grid {
+        @include grid(2);
+
+        &--contact {
+            grid-column: 2;
+        }
+    }
+}

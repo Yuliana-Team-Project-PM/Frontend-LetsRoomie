@@ -1,10 +1,10 @@
 import React from 'react';
 import '../assets/styles/components/VerticalBanner.scss';
 
-const VerticalBanner = () => {
+const VerticalBanner = ({ ilustration }) => {
     return(
         <div className="VerticalBanner">
-            <img src="" alt="Vertical Banner Image"/>
+            <img src={ilustration} alt="Vertical Banner Image"/>
         </div>
     );
 };

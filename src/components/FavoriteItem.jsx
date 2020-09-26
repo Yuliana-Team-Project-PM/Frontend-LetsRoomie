@@ -8,7 +8,9 @@ import '../assets/styles/components/FavoriteItem.scss';
 const FavoriteItem = () => {
     return(
         <div className='FavoriteItem'>
-            <AiFillHeart className='FavoriteItem__fav' />
+            <div className='FavoriteItem__icon'>
+                <AiFillHeart className='FavoriteItem__icon--heart' />
+            </div>
             <div className='FavoriteItem__text'>
                 <h2 className='FavoriteItem__text--title'>Habitación / Zona Centro</h2>
                 <p className='FavoriteItem__text--location'><MdLocationOn /> Bogotá, COL</p>

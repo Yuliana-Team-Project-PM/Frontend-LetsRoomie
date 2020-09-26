@@ -2,33 +2,42 @@
 
 .FavoriteItem {
     background: $gray-color;
-    width: 65%;
+    width: 100%;
+    // height: 200px;
     border-radius: 15px;
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    // margin: 0 auto;
+    display: grid;
+    grid-template-columns: 7% 45% 48%;
 
-    &__fav {
-        color: $secondary-color;
-        font-size: 2em;
-        margin: 0 1em;
+    &__icon {
+        display: grid;
+        place-content: center;
+        background: $secondary-color;
+        border-radius: inherit;
+
+        &--heart {
+            color: $gray-color;
+            font-size: 2em;
+        }
     }
 
     &__text {
-
+        grid-column: 2;
+        display: grid;
+        place-content: center;
         &--title {
             @include title;
         }
     }
 
     &__img {
-        width: 223px;
-        height: 217px;
-
+        grid-column: 3;
+        // background: red;
+        // padding-left: 1em;
+        
         img {
             width: 100%;
-            height: 100%;
+            height: 200px;
             object-fit: cover;
             border-radius: 15px;
         }
