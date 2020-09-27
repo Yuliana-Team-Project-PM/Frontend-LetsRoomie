@@ -26,11 +26,8 @@ function App(){
                 <Route exact path="/room-details" component={RoomDetails} />
                 <Route exact path="/favorites" component={Favorites} />
                 <Route exact path="/SearchResults" component={SearchResults} />
-<<<<<<< HEAD
                 <Route exact path="/PerfilEdit" component={PerfilEdit} />
-=======
                 <Route exact path="/addRoom" component={AddRoom} />
->>>>>>> addRoom
                 
             </Switch>
         </BrowserRouter>
