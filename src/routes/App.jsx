@@ -11,6 +11,7 @@ import CreateHostAcount from '../pages/CreateHostAccount';
 import CreateGuestAcount from '../pages/CreateGuestAccount';
 import RoomDetails from '../pages/RoomDetails';
 import Favorites from '../pages/Favorites';
+import AddRoom from '../pages/AddRoom';
 
 function App(){
     return(
@@ -24,6 +25,7 @@ function App(){
                 <Route exact path="/room-details" component={RoomDetails} />
                 <Route exact path="/favorites" component={Favorites} />
                 <Route exact path="/SearchResults" component={SearchResults} />
+                <Route exact path="/addRoom" component={AddRoom} />
                 
             </Switch>
         </BrowserRouter>
