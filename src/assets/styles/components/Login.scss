@@ -17,7 +17,8 @@
     }
 
     &__card {
-        background: $primary-color;
+        background-color: #F2F2F2;
+        border: 1px solid #c1c1c1;
         border-radius: 15px;
         padding: 2em 6em 2em 3em;
         width: 606px;
@@ -25,16 +26,18 @@
         flex-direction: column;
 
         h3 {
-            color: $gray-color;
+            color: black;
         }
 
         input {
             width: 100%;
+            font-size: 20px;
             border: none;
             background: transparent;
-            border-bottom: 1px solid white;
-            margin-bottom: 3em;
+            border-bottom: 1px solid black;
+            margin-bottom: 2em;
         }
+
 
         &--button {
             // display: block;
