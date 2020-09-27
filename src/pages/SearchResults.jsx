@@ -16,7 +16,7 @@ const SearchResults = () => {
             <Navbar />
             <SearchBar />
             <section className="RoomSuggestion">
-                <h1 className="RoomSuggestion__title">Tenemos la ubicación ideal para ti</h1>
+                <h2 className="RoomSuggestion__title">54 Resultados en la ciudad de Bogotá</h2>
                 <section className="RoomSuggestion__grid">
                     <RoomCard />
                     <RoomCard />

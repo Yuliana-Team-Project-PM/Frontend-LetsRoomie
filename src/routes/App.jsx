@@ -10,13 +10,14 @@ import CreateAcountSelect from '../pages/CreateAcountSelect';
 import CreateHostAcount from '../pages/CreateHostAccount';
 import CreateGuestAcount from '../pages/CreateGuestAccount';
 import RoomDetails from '../pages/RoomDetails';
+import PerfilEdit from '../pages/PerfilEdit';
 import Favorites from '../pages/Favorites';
 
 function App(){
     return(
         <BrowserRouter>
             <Switch>
-                <Route exact path="/" component={Home} />
+                <Route exact path="/" component={PerfilEdit} />
                 <Route exact path="/login" component={Login} />
                 <Route exact path="/select-acount" component={CreateAcountSelect} />
                 <Route exact path="/acount-guest" component={CreateGuestAcount} />
@@ -24,6 +25,7 @@ function App(){
                 <Route exact path="/room-details" component={RoomDetails} />
                 <Route exact path="/favorites" component={Favorites} />
                 <Route exact path="/SearchResults" component={SearchResults} />
+                <Route exact path="/PerfilEdit" component={PerfilEdit} />
                 
             </Switch>
         </BrowserRouter>
