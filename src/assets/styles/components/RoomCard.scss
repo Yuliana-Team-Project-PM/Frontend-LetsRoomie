@@ -93,9 +93,63 @@
 
         }
         &--button {
-            height: 40px;
             font-size: 14px;
-            @include base-button ($gray-color, $primary-color, $primary-color)
+            @include base-button ($gray-color, $primary-color, $primary-color);
+            margin-right: 0;
+        }
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .RoomCard {
+        // background: red;
+
+        &__title {
+            align-items: initial;
+            padding: 1em 1em 0 1em;
+
+        }
+    
+        &__description {
+            padding-left: 1em;
+        }
+
+        &__roomie {
+            padding-left: 1em;
+            padding-right: 1em;
+
+            &--profile {
+                // background: ivory;
+
+                &-text {
+                    margin-left: .4em;
+                }
+            }
+
+            &--button {
+
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 425px) {
+    .RoomCard {
+        &__title {
+            align-items: center;
+        }
+    }
+}
+
+@media screen and (max-width: 375px) {
+    .RoomCard {
+        &__title {
+            & h2 {
+                font-size: 1em;
+            }
+            & p {
+                font-size: .8em;
+            }
         }
     }
 }

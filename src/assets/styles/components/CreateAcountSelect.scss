@@ -1,7 +1,7 @@
 @import '../Vars.scss';
 
 .CreateAcountSelect {
-    height: 100vh;
+    height: 80vh;
     display: grid;
     place-content: center;
 
@@ -38,6 +38,49 @@
             &:hover {
                 transform: translateY(-15px);
                 box-shadow: 2px 2px 1px 1px $primary-color;            }
+        }
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .CreateAcountSelect {
+
+        &__title {
+            font-size: 2em;
+        }
+        &__subtitle {
+            margin: 1em;
+        }
+
+        &__select {
+            &--button {
+                & img {
+                    width: 220px;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 425px) {
+    .CreateAcountSelect {
+        margin-top: 70px;
+
+        &__title {
+            font-size: 1.7em;
+        }
+        &__subtitle {
+            margin: .4em;
+        }
+
+        &__select {
+            flex-direction: column;
+            &--button {
+                margin-bottom: 1em;
+                & img {
+                    width: 180px;
+                }
+            }
         }
     }
 }
