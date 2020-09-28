@@ -7,3 +7,45 @@
         @include title;
     }
 }
+
+@media screen and (max-width: 1024px) {
+    .Favorites {
+        @include container(850px);
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .Favorites {
+        @include container(660px);
+        
+        &__title {
+            font-size: 1.5em;
+        }
+    }
+}
+
+@media screen and (max-width: 425px) {
+    .Favorites {
+        @include container(370px);
+        
+        &__title {
+            font-size: 1.2em;
+        }
+    }
+}
+
+@media screen and (max-width: 375px) {
+    .Favorites {
+        @include container(335px);
+        
+        &__title {
+            font-size: 1em;
+        }
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .Favorites {
+        @include container(285px);
+    }
+}

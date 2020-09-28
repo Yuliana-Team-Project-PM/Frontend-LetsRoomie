@@ -1,13 +1,22 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import ReactTooltip from 'react-tooltip';
 
-import { AiOutlineHeart } from 'react-icons/ai'; 
+import { AiOutlineHeart, AiFillHeart } from 'react-icons/ai'; 
 import { MdLocationOn } from 'react-icons/md'; 
 import { MdAttachMoney } from 'react-icons/md'; 
 
 import '../assets/styles/components/RoomCard.scss';
 
 const RoomCard = () => {
+    const [fav, setFav] = useState('#888888');
+
+    // useEffect
+
+    const addFav = () => {
+        setFav('#E94560');
+    }
+
     return(
         <div className='RoomCard'>
             <div className='RoomCard__img'>
@@ -18,7 +27,12 @@ const RoomCard = () => {
                     <h2>Habitación en zona centro</h2>
                     <p>Zona céntrica, adaptado para trabajo remoto.</p>
                 </div>
-                <AiOutlineHeart className='RoomCard__title--fav' />
+                <AiFillHeart style={{color:fav}} onClick={addFav} className='RoomCard__title--fav' data-tip data-for='favTip' />
+
+                <ReactTooltip id='favTip' place='top' effect='solid' >
+                    Agrega a tus favoritos
+                </ReactTooltip>
+
             </div>
             <div className='RoomCard__description'>
                 <p className='RoomCard__description--location'><MdLocationOn size={23} /> Ciudad de México</p>

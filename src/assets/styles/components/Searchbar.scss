@@ -5,7 +5,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: 3em;
+    margin-top: 2em;
 
     &__icon {
         // width: 30px;
@@ -14,7 +14,7 @@
     }
 
     &__input {
-        width: 39%;
+        width: 50%;
         padding: .5em;
         border-top-left-radius: 7px;    
         border-bottom-left-radius: 7px;
@@ -29,5 +29,35 @@
         padding: .5em;
         border-top-left-radius: 0;    
         border-bottom-left-radius: 0;    
+    }
+}
+
+@media screen and (max-width: 425px) {
+    .Searchbar {
+        margin-top: 1.5em;
+        
+        &__input {
+            font-size: .7em;
+        }
+
+        &__button {
+            font-size: .7em;
+
+        }
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .Searchbar {
+        margin-top: 1.2em;
+
+        &__input {
+            font-size: .6em;
+        }
+
+        &__button {
+            font-size: .6em;
+
+        }
     }
 }

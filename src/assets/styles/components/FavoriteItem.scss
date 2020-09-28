@@ -3,11 +3,11 @@
 .FavoriteItem {
     background: $gray-color;
     width: 100%;
-    // height: 200px;
+    height: 200px;
     border-radius: 15px;
     // margin: 0 auto;
     display: grid;
-    grid-template-columns: 7% 45% 48%;
+    grid-template-columns: 7% 50% 43%;
 
     &__icon {
         display: grid;
@@ -25,6 +25,8 @@
         grid-column: 2;
         display: grid;
         place-content: center;
+        margin: 0 1em;
+
         &--title {
             @include title;
         }
@@ -32,15 +34,73 @@
 
     &__img {
         grid-column: 3;
-        // background: red;
-        // padding-left: 1em;
+        width: 100%;
+        height: 200px;
         
         img {
             width: 100%;
-            height: 200px;
+            height: 100%;
             object-fit: cover;
             border-radius: 15px;
         }
 
+    }
+}
+
+@media screen and (max-width: 425px) {
+    .FavoriteItem {
+        height: auto;
+
+        &__icon {
+            &--heart {
+                font-size: 1em;
+            }
+        }
+
+        &__text {
+            
+            &--title {
+                font-size: 1em;
+            }
+            &--location, &--description{
+                font-size: .8em;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 375px) {
+    .FavoriteItem {
+        &__icon {
+            &--heart {
+                font-size: .8em;
+            }
+        }
+
+        &__text {
+            
+            &--title {
+                font-size: .8em;
+            }
+            &--location, &--description{
+                font-size: .7em;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .FavoriteItem {
+        &__icon {
+            &--heart {
+                font-size: .7em;
+            }
+        }
+
+        &__text {
+            &--location, &--description{
+                font-size: .65em;
+            }
+        }
     }
 }

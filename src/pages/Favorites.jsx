@@ -14,7 +14,6 @@ const Favorites = () => {
                 <h1 className='Favorites__title'>Tus Favoritos</h1>
                 <FavoriteItem />
             </div>
-            <Footer />
         </>
     );
 };

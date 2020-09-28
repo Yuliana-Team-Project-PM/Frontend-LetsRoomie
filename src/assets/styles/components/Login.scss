@@ -1,9 +1,10 @@
 @import '../Vars.scss';
 
 .Login {
-    display: grid;
-    height: 90vh;
-    place-content: center;
+    // display: grid;
+    // height: 90vh;
+    // place-content: center;
+    @include container(600px);
 
     &__title {
         @include title;
@@ -21,7 +22,7 @@
         border: 1px solid #c1c1c1;
         border-radius: 15px;
         padding: 2em 6em 2em 3em;
-        width: 606px;
+        width: 100%;
         display: flex;
         flex-direction: column;
 
@@ -44,6 +45,59 @@
             @include base-button($gray-color, $secondary-color, $border-button);
             margin: 0;
             font-size: 1em;
+        }
+    }
+}
+
+@media screen and (max-width: 425px) {
+    .Login {
+        @include container(350px);
+
+        &__title {
+            font-size: 1.5em;
+        }
+
+        &__subtitle {
+            font-size: .8em;
+        }
+
+        &__card {
+            padding: 2em;
+            font-size: .8em;
+        }
+    }
+}
+
+@media screen and (max-width: 375px) {
+    .Login {
+        @include container(300px);
+
+        &__title {
+            font-size: 1.2em;
+        }
+
+        &__card {
+            
+        }
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .Login {
+        @include container(275px);
+
+        &__title {
+            font-size: 1em;
+        }
+
+        &__subtitle {
+            font-size: .65em;
+        }
+
+        &__card {
+            &--button {
+                font-size: .8em;
+            }
         }
     }
 }

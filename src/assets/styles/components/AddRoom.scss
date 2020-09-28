@@ -1,40 +1,107 @@
 @import '../Vars.scss';
+
 .AddRoom {
-    color: $primary-color;
-    width: 100%;
-    display: flex;
-  }
-  
-  .AddRoom-form {
-    margin: auto;
-  
-    h2 {
-      margin: 50px 0 50px 0;
+    @include container(1000px);
+
+    &__title {
+        @include title;
     }
-  }
-  
-  .AddRoom__fields {
-    display: inline-grid;
-  
-    input {
-      width: 600px;
-      margin: 20px 0 20px 0;
-      border: none;
-      border-bottom: 1px solid $primary-color;
+
+    &__form {
+        label {
+            color: $dark-color;
+            display: block;
+            font-size: 1.2em;
+        }
+    
+        input {
+            width: 100%;
+            border: none;
+            border-bottom: 1px solid $primary-color;
+            margin: 1em 0 5em 0;
+        }
+
+        textarea {
+            width: 100%;
+            margin: 1em 0 5em 0;
+            border: none;
+            border-bottom: 1px solid $primary-color;
+        }
+
+        &--photo {
+            background: $gray-color;
+            height: 200px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 4em;
+        }
+
+        &--button {
+            @include base-button($gray-color, $secondary-color, $border-button);
+            margin-bottom: 4em;
+        }
+
     }
-  
-    button {
-      width: 30%;
-      float: right;
+}
+
+@media screen and (max-width: 1024px) {
+    .AddRoom {
+        @include container(800px);
     }
-  }
-  
-  input {
-    &:focus, &.form-control:focus {
-      outline: none !important;
-      outline-width: 0 !important;
-      box-shadow: none;
-      -moz-box-shadow: none;
-      -webkit-box-shadow: none;
+}
+
+@media screen and (max-width: 768px) {
+    .AddRoom {
+        @include container(670px);
+
+        &__title {
+            font-size: 1.5em;
+        }
     }
-  }
+}
+
+@media screen and (max-width: 425px) {
+    .AddRoom {
+        @include container(380px);
+
+        &__title {
+            font-size: 1.2em;
+        }
+        &__form {
+            label {
+                font-size: 1em;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 375px) {
+    .AddRoom {
+        @include container(325px);
+
+        &__title {
+            font-size: 1em;
+        }
+        &__form {
+            label {
+                font-size: .8em;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .AddRoom {
+        @include container(290px);
+
+        &__title {
+            font-size: 1em;
+        }
+        &__form {
+            label {
+                font-size: .8em;
+            }
+        }
+    }
+}
