@@ -31,7 +31,6 @@ const AddRoom = () => {
                     <button className='AddRoom__form--button'>Guardar Cambios</button>
                 </form>
             </div>
-            <Footer />
         </>
     );
 };

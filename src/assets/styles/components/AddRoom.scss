@@ -43,7 +43,65 @@
         }
 
     }
+}
 
+@media screen and (max-width: 1024px) {
+    .AddRoom {
+        @include container(800px);
+    }
+}
 
-    
+@media screen and (max-width: 768px) {
+    .AddRoom {
+        @include container(670px);
+
+        &__title {
+            font-size: 1.5em;
+        }
+    }
+}
+
+@media screen and (max-width: 425px) {
+    .AddRoom {
+        @include container(380px);
+
+        &__title {
+            font-size: 1.2em;
+        }
+        &__form {
+            label {
+                font-size: 1em;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 375px) {
+    .AddRoom {
+        @include container(325px);
+
+        &__title {
+            font-size: 1em;
+        }
+        &__form {
+            label {
+                font-size: .8em;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .AddRoom {
+        @include container(290px);
+
+        &__title {
+            font-size: 1em;
+        }
+        &__form {
+            label {
+                font-size: .8em;
+            }
+        }
+    }
 }

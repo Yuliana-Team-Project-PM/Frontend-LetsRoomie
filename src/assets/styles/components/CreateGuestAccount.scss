@@ -1,3 +1,5 @@
+@import '../Vars.scss';
+
 .CreateGuestAccount{
     display: grid;
     grid-template-columns: 2fr 1fr;
@@ -28,4 +30,45 @@ input:focus, input.form-control:focus {
 }
 .Login__card--button{
     width: 30%;
+}
+
+@media screen and (max-width: 1024px) {
+    .CreateGuestAccount {
+        &--form {
+
+        }
+    }
+
+    .VerticalBanner {
+        img {
+            width: 270px;
+        }
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .CreateGuestAccount {
+        grid-template-columns: 70% 30%;
+    }
+
+    .VerticalBanner {
+        img {
+            width: 190px;
+        }
+    }
+}
+
+@media screen and (max-width: 425px) {
+    .CreateGuestAccount {
+        display: block;
+        // @include container(400px);
+    }
+
+    .VerticalBanner {
+        height: 35vh;
+        width: 100vw;
+        img {
+            width: 190px;
+        }
+    }
 }
