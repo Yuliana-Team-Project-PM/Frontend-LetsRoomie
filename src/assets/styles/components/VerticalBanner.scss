@@ -1,8 +1,9 @@
+@import '../Vars.scss';
 .VerticalBanner{
     height: 100vh;
     display: grid;
     justify-content: center;
     align-items: center;
     margin: 0;
-    background-color: #3d1bc5;
+    background-color: $primary-color;
 }

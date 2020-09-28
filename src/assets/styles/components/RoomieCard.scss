@@ -1,6 +1,4 @@
-/*
-    Convertir en sass
-*/
+@import '../Vars.scss';
 .RoomieCard{
     width: 580px;
     margin: 20px;
@@ -28,9 +26,9 @@
     margin-right:10px;
     padding: 5px;
     color: white;
-    background-color: #3d1bc5;
+    background-color: $primary-color;
     border-radius: 10px;
 }
 .RoomieCard__header-Perfil{
-    color: #e94560;
+    color: $secondary-color;
 }

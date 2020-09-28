@@ -1,7 +1,9 @@
+@import '../Vars.scss';
+
 .CreateGuestAccount{
     display: grid;
     grid-template-columns: 2fr 1fr;
-    color: #3D1BC5;
+    color: $primary-color;
 }
 .CreateGuestAccount-form{
     margin:auto;
@@ -16,7 +18,7 @@
     width: 500px;
     margin: 25px 0 25px 0;
     border:none;
-    border-bottom: 1px solid  #3D1BC5;
+    border-bottom: 1px solid $primary-color;
 }
 
 input:focus, input.form-control:focus {

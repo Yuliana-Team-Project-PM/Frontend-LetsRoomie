@@ -1,33 +1,40 @@
-.AddRoom{
-    color: #3D1BC5;
+@import '../Vars.scss';
+.AddRoom {
+    color: $primary-color;
     width: 100%;
     display: flex;
-
-}
-.AddRoom-form{
-    margin:auto;
-}
-.AddRoom-form h2{
-    margin: 50px 0 50px 0;
-}
-.AddRoom__fields{
+  }
+  
+  .AddRoom-form {
+    margin: auto;
+  
+    h2 {
+      margin: 50px 0 50px 0;
+    }
+  }
+  
+  .AddRoom__fields {
     display: inline-grid;
-}
-.AddRoom__fields input{
-    width: 600px;
-    margin: 20px 0 20px 0;
-    border:none;
-    border-bottom: 1px solid  #3D1BC5;
-}
-.AddRoom__fields button{
-    width: 30%;
-    float: right;
-}
-
-input:focus, input.form-control:focus {
-    outline:none !important;
-    outline-width: 0 !important;
-    box-shadow: none;
-    -moz-box-shadow: none;
-    -webkit-box-shadow: none;
-}
+  
+    input {
+      width: 600px;
+      margin: 20px 0 20px 0;
+      border: none;
+      border-bottom: 1px solid $primary-color;
+    }
+  
+    button {
+      width: 30%;
+      float: right;
+    }
+  }
+  
+  input {
+    &:focus, &.form-control:focus {
+      outline: none !important;
+      outline-width: 0 !important;
+      box-shadow: none;
+      -moz-box-shadow: none;
+      -webkit-box-shadow: none;
+    }
+  }
