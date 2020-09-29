@@ -2,8 +2,14 @@
 
 .PerfilEdit{
     width: 50%;
+    height: 60vh;
     margin: 50px auto;
-    color: $primary-color;
+    color: #3D1BC5;
+
+    &__button {
+        @include base-button($gray-color, $secondary-color, $border-button);
+        margin: 4em 0 0 0 ;
+    }
 }
 .PerfilEdit__photo{
     display: flex;
@@ -38,4 +44,12 @@
     color: white;
     background-color: $primary-color;
     border-radius: 10px;
+}
+
+@media screen and (max-width: 425px) {
+    .PerfilEdit {
+        &__photo {
+            display: block;
+        }
+    }
 }

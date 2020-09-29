@@ -13,6 +13,7 @@ import RoomDetails from '../pages/RoomDetails';
 import PerfilEdit from '../pages/PerfilEdit';
 import Favorites from '../pages/Favorites';
 import AddRoom from '../pages/AddRoom';
+import Profile from '../pages/Profile';
 
 function App(){
     return(
@@ -26,9 +27,8 @@ function App(){
                 <Route exact path="/room-details" component={RoomDetails} />
                 <Route exact path="/favorites" component={Favorites} />
                 <Route exact path="/SearchResults" component={SearchResults} />
-                <Route exact path="/PerfilEdit" component={PerfilEdit} />
                 <Route exact path="/addRoom" component={AddRoom} />
-                
+                <Route exact path="/profile" component={Profile} />
             </Switch>
         </BrowserRouter>
     );
