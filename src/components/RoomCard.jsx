@@ -8,7 +8,7 @@ import { MdAttachMoney } from 'react-icons/md';
 
 import '../assets/styles/components/RoomCard.scss';
 
-const RoomCard = () => {
+const RoomCard = ({description,images,namePlace,location}) => {
     const [fav, setFav] = useState('#888888');
 
     // useEffect
@@ -20,12 +20,12 @@ const RoomCard = () => {
     return(
         <div className='RoomCard'>
             <div className='RoomCard__img'>
-                <img src="https://images.unsplash.com/photo-1600494448655-ae58f58bb945?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=675&q=80" alt="photo_room"/>
+                <img src="https://images.unsplash.com/photo-1600494448655-ae58f58bb945?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=675&q=80" alt={images}/>
             </div>
             <div className='RoomCard__title'>
                 <div>
-                    <h2>Habitación en zona centro</h2>
-                    <p>Zona céntrica, adaptado para trabajo remoto.</p>
+                    <h2>{namePlace}</h2>
+                    <p>{description.substr(0,200)}...</p>
                 </div>
                 <AiFillHeart style={{color:fav}} onClick={addFav} className='RoomCard__title--fav' data-tip data-for='favTip' />
 
@@ -35,7 +35,7 @@ const RoomCard = () => {
 
             </div>
             <div className='RoomCard__description'>
-                <p className='RoomCard__description--location'><MdLocationOn size={23} /> Ciudad de México</p>
+                <p className='RoomCard__description--location'><MdLocationOn size={23} />{location} </p>
                 <p className='RoomCard__description--price'><MdAttachMoney size={23} /> 3,500 / mensual</p>
             </div>
             <div className='RoomCard__roomie'>

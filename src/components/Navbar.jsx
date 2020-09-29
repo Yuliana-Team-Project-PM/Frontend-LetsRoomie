@@ -7,7 +7,7 @@ import '../assets/styles/components/Navbar.scss';
 const Navbar = () => {
     return(
         <header className='Header'>
-            <Link to="/"><img src={logo} className='Header__logo' /></Link>
+            <Link to="/"><img alt="Logo" src={logo} className='Header__logo' /></Link>
             <div className='Header__nav'>
                 <Link to="/login"><button className='Header__nav--buttonLigth'>Login</button></Link>
                 <Link to='/select-acount'><button className='Header__nav--button'>Crear cuenta</button></Link>
