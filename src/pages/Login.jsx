@@ -5,32 +5,39 @@ import LogoHeader from '../components/LogoHeader';
 
 import '../assets/styles/components/Login.scss';
 
-import useRoomCardinfo from '../hooks/useRoomCardinfo'
+
 
 const Login = () => {
 
 
     
     const LoginValidation=()=>{
-        const[ login,setLogin]=useState([]);
         let emailUser=document.getElementById("email").value
         let psswUser=document.getElementById("password").value
         let datosLogin={
             "email": emailUser,
             "password": psswUser
             }
-        useEffect(()=>{
-            fetch('https://api-letsroomie.herokuapp.com/auth/signin',{
-                method: 'POST',
-                body: JSON.stringify(datosLogin),
-                headers:{
+        fetch('https://api-letsroomie.herokuapp.com/auth/signin',{
+            method: 'POST',
+            body: JSON.stringify(datosLogin),
+            headers:{
                 'Content-Type': 'application/json'
-                    }
-                })
-                .then(response=>response.json())
-                .then(data=>setLogin(data));
-                },[]);
-        console.log(login)
+                }
+            })
+            .then(function(response) {
+                return response;
+            })
+            .then(function(data) {
+                console.log('data = ', data);
+                if(data.body===""){
+                    alert("Usted no tiene aún una cuenta con nosotos")
+                }else{
+                    alert(data.body.token)
+                    sessionStorage.setItem('Token', data.body.token);
+                    //location.href ="http://localhost:8080/";
+                }
+            })
     }
 
     return(
