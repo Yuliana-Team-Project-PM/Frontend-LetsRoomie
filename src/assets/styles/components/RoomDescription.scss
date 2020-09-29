@@ -1,6 +1,8 @@
+@import '../Vars.scss';
+
 .RoomDescription{
-    width: 540px;
-    margin: 20px;
+    width: 100%;
+    margin-right: 10px;
     padding: 20px;
     background-color: #F2F2F2;
     border-radius: 20px;
@@ -9,6 +11,11 @@
 .RoomDescription-header{
     display: flex;
     align-items: center;
+
+    &--icon {
+        color: $primary-color;
+        font-size: 2em;
+    }
 }
 .RoomDescription-header h2{
     margin-left: 10px;

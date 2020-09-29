@@ -17,7 +17,7 @@ Observaciones
     5. El back debe entregar los intereses (El card debe mostrarlos de manera dinámica)
 */
 
-const RoomieCard= props =>{
+const RoomieCard = props => {
         return(
             <div className="RoomieCard">
                 <section className="RoomieCard__header">

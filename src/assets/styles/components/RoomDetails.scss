@@ -2,12 +2,53 @@
 
 .RoomDetails {
     @include container(1200px);
-
+    margin: 2em 0;
+    grid-gap: 1em;
+    
     &__grid {
         @include grid(2);
+        grid-gap: 1em;
 
         &--contact {
             grid-column: 2;
         }
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .RoomDetails {
+        @include container(800px);
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .RoomDetails {
+        @include container(700px);
+    }
+}
+
+@media screen and (max-width: 425px) {
+    .RoomDetails {
+        @include container(390px);
+
+        &__grid {
+            @include grid(1);
+    
+            &--contact {
+                grid-column: 1;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 375px) {
+    .RoomDetails {
+        @include container(350px);
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .RoomDetails {
+        @include container(310px);
     }
 }

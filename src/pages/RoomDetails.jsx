@@ -1,4 +1,5 @@
 import React from 'react';
+import Footer from '../components/Footer';
 
 import '../assets/styles/components/RoomDetails.scss';
 
@@ -23,6 +24,7 @@ const RoomDetails = () => {
                     </div>
                 </div>
             </div>
+            <Footer />
         </>
     );
 };

@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
 
+import { IoIosArrowBack } from 'react-icons/io'; 
+import { IoIosArrowForward } from 'react-icons/io'; 
+
 import '../assets/styles/components/Carousel.scss';
 
 const Carousel = () => {
@@ -59,8 +62,8 @@ const Carousel = () => {
                     );
                 })
             }
-            <button id='goLeft' onClick={goLeft}>Left</button>
-            <button id='goRigth' onClick={goRigth}>Rigth</button>
+            <button id='goLeft' onClick={goLeft}><IoIosArrowBack size={20} /></button>
+            <button id='goRigth' onClick={goRigth}><IoIosArrowForward size={20} /></button>
         </div>
     );
 };
