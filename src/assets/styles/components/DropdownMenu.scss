@@ -1,0 +1,63 @@
+@import '../Vars.scss';
+
+.menu-container {
+    position: relative;
+
+    &__trigger {
+        // border: none;
+        @include base-button($primary-color, red, transparent);
+        background: transparent;
+        border-radius: 0;
+        margin-left: .1em;
+        border-bottom: 1px solid $primary-color;
+        display: flex;
+        align-items: center;
+
+        span {
+            margin-right: .5em;
+        }
+    }
+
+    button:focus {
+        outline: none;
+    }
+}
+
+.menu {
+    background: $gray-color;
+    border-radius: 7px;
+    position: absolute;
+    top: 60px;
+    right: 0;
+    width: 300px;
+    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.3);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-20px);
+    transition: opacity 0.4s ease, transform 0.4s ease, visibility 0.4s;
+    z-index: 1;
+
+    ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    li {
+        border-bottom: 1px solid #dddddd;
+
+        a {
+            text-decoration: none;
+            color: $primary-color;
+            padding: 15px 20px;
+            display: block; 
+        }
+    }
+}
+
+.menu.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+
+}
