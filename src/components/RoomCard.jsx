@@ -8,7 +8,7 @@ import { MdAttachMoney } from 'react-icons/md';
 
 import '../assets/styles/components/RoomCard.scss';
 
-const RoomCard = ({description,images,namePlace,location}) => {
+const RoomCard = ({description,images,namePlace,location,to}) => {
     const [fav, setFav] = useState('#888888');
 
     // useEffect
@@ -46,7 +46,7 @@ const RoomCard = ({description,images,namePlace,location}) => {
                         <span>ROOMIE</span>
                     </div>
                 </div>
-                <Link to='room-details'>
+                <Link to={to}>
                     <button className='RoomCard__roomie--button'>Ver más</button>
                 </Link>
             </div>

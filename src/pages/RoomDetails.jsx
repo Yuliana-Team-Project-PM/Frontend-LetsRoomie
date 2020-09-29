@@ -8,19 +8,24 @@ import Carousel from '../components/Carousel';
 import RoomDescription from '../components/RoomDescription';
 import RoomieCard from '../components/RoomieCard';
 import ContactCard from '../components/ContactCard';
+import useRoomCardinfo from '../hooks/useRoomCardinfo'
 
-const RoomDetails = () => {
+const RoomDetails = (props) => {
+    const{ match }=props
+    let roomId=match.params.roomIndex
+    const API=`https://api-letsroomie.herokuapp.com/place/${roomId}`
+    const RoomInfo=useRoomCardinfo(API)
+    console.log(RoomInfo)
     return(
         <>
             <Navbar />
             <div className='RoomDetails'>
                 <Carousel />
                 <div className='RoomDetails__grid'>
-                    <RoomDescription />
+                    <RoomDescription {...RoomInfo.body} />
                     <RoomieCard />
                     <div className='RoomDetails__grid--contact'>
                         <ContactCard />
-
                     </div>
                 </div>
             </div>

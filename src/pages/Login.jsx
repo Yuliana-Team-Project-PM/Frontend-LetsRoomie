@@ -5,14 +5,19 @@ import LogoHeader from '../components/LogoHeader';
 
 import '../assets/styles/components/Login.scss';
 
-const Login = () => {
-    const[ login,setLogin]=useState([]);
+import useRoomCardinfo from '../hooks/useRoomCardinfo'
 
-    function LoginValidation(){
-        alert("Botom clicked")
-        /*let datosLogin={
-            "email": "string",
-            "password": "string"
+const Login = () => {
+
+
+    
+    const LoginValidation=()=>{
+        const[ login,setLogin]=useState([]);
+        let emailUser=document.getElementById("email").value
+        let psswUser=document.getElementById("password").value
+        let datosLogin={
+            "email": emailUser,
+            "password": psswUser
             }
         useEffect(()=>{
             fetch('https://api-letsroomie.herokuapp.com/auth/signin',{
@@ -25,7 +30,7 @@ const Login = () => {
                 .then(response=>response.json())
                 .then(data=>setLogin(data));
                 },[]);
-        console.log(login)*/
+        console.log(login)
     }
 
     return(
@@ -39,7 +44,7 @@ const Login = () => {
                         <input type="email" name="" id="email"/>
                         <h3>Contraseña</h3>
                         <input type="password" name="" id="password"/>
-                        <button className='Login__card--button' onclick="LoginValidation()">Entrar</button>
+                        <button type="button" className='Login__card--button' onClick={LoginValidation}>Entrar</button>
                     </form>
                 </div>
                 <h4 className='Login__subtitle'>¿Aún no tienes una cuenta? <Link to='select-acount' >Crea una aquí</Link></h4>

@@ -24,7 +24,7 @@ function App(){
                 <Route exact path="/select-acount" component={CreateAcountSelect} />
                 <Route exact path="/acount-guest" component={CreateGuestAcount} />
                 <Route exact path="/acount-host" component={CreateHostAcount} />
-                <Route exact path="/room-details" component={RoomDetails} />
+                <Route exact path="/room-details/:roomIndex" component={RoomDetails} />
                 <Route exact path="/favorites" component={Favorites} />
                 <Route exact path="/SearchResults" component={SearchResults} />
                 <Route exact path="/addRoom" component={AddRoom} />

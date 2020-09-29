@@ -10,7 +10,8 @@ import useRoomCardinfo from '../hooks/useRoomCardinfo'
 import '../assets/styles/components/Home.scss';
 
 const Home = () => {
-   const lugares=useRoomCardinfo()
+   const API='https://api-letsroomie.herokuapp.com/place'
+   const lugares=useRoomCardinfo(API)
     return(
         <>
             <Navbar />
@@ -20,7 +21,7 @@ const Home = () => {
                 <h1 className="RoomSuggestion__title">Tenemos la ubicación ideal para ti</h1>
                 <section className="RoomSuggestion__grid">
                     {lugares.body.map(item=>
-                        <RoomCard key={item._id} {...item}/>
+                        <RoomCard to={`/room-details/${item._id}`} key={item._id} {...item}/>
 
                     )
                     }

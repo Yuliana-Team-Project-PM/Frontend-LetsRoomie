@@ -1,13 +1,13 @@
 import {useState,useEffect} from 'react'
 
-const useRoomCardinfo=()=>{
+const useRoomCardinfo=(API)=>{
     const[ lugares,setLugares]=useState({
         body:[],
         status: [],
         __proto__: []
     });
     useEffect(()=>{
-        fetch('https://api-letsroomie.herokuapp.com/place')
+        fetch(API)
             .then(response=>response.json())
             .then(data=>setLugares(data));
     },[]); 
