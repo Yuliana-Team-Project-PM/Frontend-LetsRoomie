@@ -8,7 +8,7 @@ import { MdAttachMoney } from 'react-icons/md';
 
 import '../assets/styles/components/RoomCard.scss';
 
-const RoomCard = ({description,images,namePlace,location,to}) => {
+const RoomCard = ({images,description,namePlace,location,to,price,user}) => {
     const [fav, setFav] = useState('#888888');
 
     // useEffect
@@ -20,7 +20,7 @@ const RoomCard = ({description,images,namePlace,location,to}) => {
     return(
         <div className='RoomCard'>
             <div className='RoomCard__img'>
-                <img src="https://images.unsplash.com/photo-1600494448655-ae58f58bb945?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=675&q=80" alt={images}/>
+                <img src={images[0]} alt='imagen de habitación'/>
             </div>
             <div className='RoomCard__title'>
                 <div>
@@ -36,13 +36,13 @@ const RoomCard = ({description,images,namePlace,location,to}) => {
             </div>
             <div className='RoomCard__description'>
                 <p className='RoomCard__description--location'><MdLocationOn size={23} />{location} </p>
-                <p className='RoomCard__description--price'><MdAttachMoney size={23} /> 3,500 / mensual</p>
+                <p className='RoomCard__description--price'><MdAttachMoney size={23} />{price} / mensual</p>
             </div>
             <div className='RoomCard__roomie'>
                 <div className='RoomCard__roomie--profile'>
-                    <img src="https://images.unsplash.com/photo-1485528562718-2ae1c8419ae2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=781&q=80" alt=""/>
+                    <img src={user.avatar} alt="foto de perfil"/>
                     <div className='RoomCard__roomie--profile-text'>
-                        <p>Eduardo Díaz</p>
+                        <p>{user.name}</p>
                         <span>ROOMIE</span>
                     </div>
                 </div>

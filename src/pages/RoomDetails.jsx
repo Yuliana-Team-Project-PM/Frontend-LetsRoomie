@@ -20,12 +20,12 @@ const RoomDetails = (props) => {
         <>
             <Navbar />
             <div className='RoomDetails'>
-                <Carousel />
+                <Carousel {...RoomInfo.body.images}/>
                 <div className='RoomDetails__grid'>
                     <RoomDescription {...RoomInfo.body} />
                     <RoomieCard />
                     <div className='RoomDetails__grid--contact'>
-                        <ContactCard />
+                        <ContactCard {...RoomInfo.body} />
                     </div>
                 </div>
             </div>

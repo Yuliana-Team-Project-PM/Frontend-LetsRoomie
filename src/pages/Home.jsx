@@ -10,8 +10,9 @@ import useRoomCardinfo from '../hooks/useRoomCardinfo'
 import '../assets/styles/components/Home.scss';
 
 const Home = () => {
-   const API='https://api-letsroomie.herokuapp.com/place'
+   const API='https://api-letsroomie.herokuapp.com/placea'
    const lugares=useRoomCardinfo(API)
+   console.log(lugares)
     return(
         <>
             <Navbar />

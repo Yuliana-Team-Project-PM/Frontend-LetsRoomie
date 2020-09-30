@@ -5,9 +5,10 @@ import { IoIosArrowForward } from 'react-icons/io';
 
 import '../assets/styles/components/Carousel.scss';
 
-const Carousel = () => {
-    const img1 = 'https://images.unsplash.com/photo-1600719162165-20eadf0f69a1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1267&q=80';
-    const img2 = 'https://images.unsplash.com/photo-1600424804969-3fce0c50da35?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80'
+const Carousel = (images) => {
+    console.log(images)
+    const img1 =  images[0]
+    const img2 = images[1]
     const img3 = 'https://images.unsplash.com/photo-1600717707657-53775bc58050?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80'
     const img4 = 'https://images.unsplash.com/photo-1600376744018-28a6a2ea1d0b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=675&q=80'
     const img5 = 'https://images.unsplash.com/photo-1554539234-6ec2b92df375?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=675&q=80'

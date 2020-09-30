@@ -18,26 +18,29 @@ const Login = () => {
             "email": emailUser,
             "password": psswUser
             }
-        fetch('https://api-letsroomie.herokuapp.com/auth/signin',{
+        console.log(datosLogin)
+        fetch('https://api-letsroomie.herokuapp.com/signin',{
             method: 'POST',
             body: JSON.stringify(datosLogin),
             headers:{
                 'Content-Type': 'application/json'
-                }
-            })
-            .then(function(response) {
-                return response;
-            })
-            .then(function(data) {
-                console.log(data);
-                if(data.statusText==="Internal Server Error"){
-                    alert("Usted no tiene aún una cuenta con nosotos")
+              }
+            }).then(res => res.json())
+            .catch(error => console.error('Error:', error))
+            .then(response => {
+                if(response.error===""){
+                    console.log(response)
+                    setTimeout(function(){
+                        alert("Guardando token y redirigiendo")
+                        sessionStorage.setItem('Token', response.body.token);
+                        window.location.href = 'http://localhost:8080/';
+                     }, 3000);
+                    //var Token = sessionStorage.getItem('Token');
+                    //console.log(Token)
                 }else{
-                    alert(data.body.token)
-                    sessionStorage.setItem('Token', data.statusText);
-                    //location.href ="http://localhost:8080/";
+                    alert("No se encuentra registrado")
                 }
-            })
+            });
     }
 
     return(
