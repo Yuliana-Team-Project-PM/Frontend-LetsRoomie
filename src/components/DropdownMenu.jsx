@@ -41,6 +41,7 @@ const DropdownMenu = () => {
                 <ul>
                     <li><Link to='/profile'>Editar perfil</Link></li>
                     <li><Link to='/addRoom'>Agregar habitación</Link></li>
+                    <li><Link to='/' className='menu__exit'>Cerrar Sesión</Link></li>
                 </ul>
             </nav>
         </div>
