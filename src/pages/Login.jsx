@@ -29,12 +29,12 @@ const Login = () => {
                 return response;
             })
             .then(function(data) {
-                console.log('data = ', data);
-                if(data.body===""){
+                console.log(data);
+                if(data.statusText==="Internal Server Error"){
                     alert("Usted no tiene aún una cuenta con nosotos")
                 }else{
                     alert(data.body.token)
-                    sessionStorage.setItem('Token', data.body.token);
+                    sessionStorage.setItem('Token', data.statusText);
                     //location.href ="http://localhost:8080/";
                 }
             })

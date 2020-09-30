@@ -1,4 +1,4 @@
-.footer{
+/*.footer{
     width: 100%;
     height: 150px;
     display: grid;
@@ -11,3 +11,27 @@
 .footer h2{
     margin: 0;
 }
+.footer__text{
+    color: white;
+    background-color: #2D333A;
+}*/
+.footer{
+    color: white;
+    background-color:#2D333A ;
+}
+.footer__cta{
+    height: 110px;
+    text-align: center;
+    padding: 10px;
+    border-bottom: .5px solid #26292F;
+}
+.Hero__title--button{
+    text-decoration: none;
+}
+.footer__icons{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0px 100px;
+}
+

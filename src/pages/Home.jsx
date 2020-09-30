@@ -17,7 +17,7 @@ const Home = () => {
             <Navbar />
             <Hero />
             <SearchBar />
-            <section className="RoomSuggestion">
+            <main className="RoomSuggestion">
                 <h1 className="RoomSuggestion__title">Tenemos la ubicación ideal para ti</h1>
                 <section className="RoomSuggestion__grid">
                     {lugares.body.map(item=>
@@ -26,7 +26,7 @@ const Home = () => {
                     )
                     }
                 </section>
-            </section>
+            </main>
             <FavoriteButton />
             <Footer />
         </>
