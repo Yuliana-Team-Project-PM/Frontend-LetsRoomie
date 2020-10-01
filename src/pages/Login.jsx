@@ -12,6 +12,7 @@ const Login = () => {
 
     
     const LoginValidation=()=>{
+        alert("Hola")
         let emailUser=document.getElementById("email").value
         let psswUser=document.getElementById("password").value
         let datosLogin={

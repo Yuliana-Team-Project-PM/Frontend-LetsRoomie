@@ -24,6 +24,8 @@ const CreateGuestAccount = () => {
                         <input type="text"/>
                         <label htmlFor="">Confirmar contraseña</label>
                         <input type="text"/>
+                        <label for="myfile">Cargue una foto de perfil</label>
+                        <input id="foto" type="file" name="myImage" accept="image/x-png,image/gif,image/jpeg " />
                         <button className='Login__card--button'>Crear cuenta</button>
                     </form>
                 </div>
