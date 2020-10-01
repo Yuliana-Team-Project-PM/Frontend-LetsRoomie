@@ -1,5 +1,5 @@
 import React,{ useState , useEffect} from 'react';
-import { Link } from 'react-router-dom';
+import { Link,withRouter } from 'react-router-dom';
 
 import LogoHeader from '../components/LogoHeader';
 
@@ -12,7 +12,6 @@ const Login = () => {
 
     
     const LoginValidation=()=>{
-        alert("Hola")
         let emailUser=document.getElementById("email").value
         let psswUser=document.getElementById("password").value
         let datosLogin={
@@ -30,14 +29,8 @@ const Login = () => {
             .catch(error => console.error('Error:', error))
             .then(response => {
                 if(response.error===""){
-                    console.log(response)
-                    setTimeout(function(){
-                        alert("Guardando token y redirigiendo")
-                        sessionStorage.setItem('Token', response.body.token);
-                        window.location.href = 'http://localhost:8080/';
-                     }, 3000);
-                    //var Token = sessionStorage.getItem('Token');
-                    //console.log(Token)
+                    sessionStorage.setItem('Token', response.body.token);
+                    //alert(sessionStorage.getItem('Token'))
                 }else{
                     alert("No se encuentra registrado")
                 }
@@ -55,7 +48,7 @@ const Login = () => {
                         <input type="email" name="" id="email"/>
                         <h3>Contraseña</h3>
                         <input type="password" name="" id="password"/>
-                        <button type="button" className='Login__card--button' onClick={LoginValidation}>Entrar</button>
+                        <Link to="/"><button type="button" className='Login__card--button' onClick={LoginValidation}>Entrar</button></Link>
                     </form>
                 </div>
                 <h4 className='Login__subtitle'>¿Aún no tienes una cuenta? <Link to='select-acount' >Crea una aquí</Link></h4>
@@ -64,4 +57,4 @@ const Login = () => {
     );
 };
 
-export default Login;
+export default withRouter(Login);
