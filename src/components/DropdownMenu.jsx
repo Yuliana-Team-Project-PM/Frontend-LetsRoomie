@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import useRoomCardinfo from '../hooks/useRoomCardinfo'
-
+import Swal from 'sweetalert2'
 
 import { IoIosArrowDown } from 'react-icons/io'; 
 import '../assets/styles/components/DropdownMenu.scss'
@@ -19,11 +19,9 @@ const DropdownMenu = () => {
         name=item.name
     )
     const cerrarSesion = () =>{
-        //alert(sessionStorage.getItem('Token'))
-        //alert("sesion cerrada")
         sessionStorage.setItem('Token', "");
         sessionStorage.setItem('userEmail',"");
-        //alert(sessionStorage.getItem('Token'))
+        Swal.fire("sesión cerrada")
         
     }
 

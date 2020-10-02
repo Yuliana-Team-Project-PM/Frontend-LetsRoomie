@@ -5,19 +5,19 @@ import { MdLocationOn } from 'react-icons/md';
 
 import '../assets/styles/components/FavoriteItem.scss';
 
-const FavoriteItem = () => {
+const FavoriteItem = ({description,city,namePlace,location,images}) => {
     return(
         <section className='FavoriteItem'>
             <div className='FavoriteItem__icon'>
                 <AiFillHeart className='FavoriteItem__icon--heart' />
             </div>
             <div className='FavoriteItem__text'>
-                <h2 className='FavoriteItem__text--title'>Habitación / Zona Centro</h2>
-                <p className='FavoriteItem__text--location'><MdLocationOn /> Bogotá, COL</p>
-                <p className='FavoriteItem__text--description'>Habitación ideal para estudiantes o freelancaers. Cocina incluida.</p>
+            <h2 className='FavoriteItem__text--title'>{namePlace}/ {location}</h2>
+                <p className='FavoriteItem__text--location'><MdLocationOn />{city}</p>
+                <p className='FavoriteItem__text--description'>{description}</p>
             </div>
             <div className='FavoriteItem__img'>
-                <img src="https://images.unsplash.com/photo-1600489000360-34bd69182634?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1267&q=80" alt=""/>
+                <img src={images[0]} alt=""/>
             </div>
         </section>
     );

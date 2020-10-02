@@ -1,15 +1,14 @@
 import React from 'react';
-
+import { withRouter } from 'react-router-dom';
 import LogoHeader from '../components/LogoHeader';
 import VerticalBanner from '../components/VerticalBanner';
 import '../assets/styles/components/CreateGuestAccount.scss';
-
+import Swal from 'sweetalert2'
 import guest from '../assets/static/guest.png'
 
 
-const CreateGuestAccount = () => {
+const CreateGuestAccount = ({history}) => {
     const guestCreation=()=>{
-        alert("sdlnd")
         let name=document.getElementById("name").value
         let email=document.getElementById("email").value
         let telephone=document.getElementById("telephone").value
@@ -47,6 +46,12 @@ const CreateGuestAccount = () => {
             .then(res => res.json())
             .then(response => {
                 console.log(response)
+                if(response.error===""){
+                    Swal.fire("Registro exitoso")
+                    history.push("/login")
+                }else{
+                    Swal.fire("Registro no exitoso")
+                }
             });
     }
     return(
@@ -77,4 +82,4 @@ const CreateGuestAccount = () => {
     );
 };
 
-export default CreateGuestAccount;
+export default withRouter(CreateGuestAccount);
