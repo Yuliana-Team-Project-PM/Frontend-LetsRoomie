@@ -6,7 +6,6 @@ import { IoIosArrowForward } from 'react-icons/io';
 import '../assets/styles/components/Carousel.scss';
 
 const Carousel = (images) => {
-    console.log(images)
     const img1 =  images[0]
     const img2 = images[1]
     const img3 = 'https://images.unsplash.com/photo-1600717707657-53775bc58050?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80'

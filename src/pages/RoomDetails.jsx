@@ -23,7 +23,7 @@ const RoomDetails = (props) => {
                 <Carousel {...RoomInfo.body.images}/>
                 <div className='RoomDetails__grid'>
                     <RoomDescription {...RoomInfo.body} />
-                    <RoomieCard />
+                    <RoomieCard {...RoomInfo.body.user}/>
                     <div className='RoomDetails__grid--contact'>
                         <ContactCard {...RoomInfo.body} />
                     </div>
