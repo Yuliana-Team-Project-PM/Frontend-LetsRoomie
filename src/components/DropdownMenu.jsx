@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import useRoomCardinfo from '../hooks/useRoomCardinfo'
 
 
 import { IoIosArrowDown } from 'react-icons/io'; 
@@ -10,6 +11,10 @@ const DropdownMenu = () => {
     const [isActive, setIsActive] = useState(false);
 
     const showMenu = () => setIsActive(!isActive);
+    const API=`https://api-letsroomie.herokuapp.com/userByEmail/${sessionStorage.getItem('userEmail')}`
+    console.log(API)
+    const userInfo=useRoomCardinfo(API)
+    console.log(userInfo)
 
     useEffect(() => {
         const pageClickEvent = (e) => {

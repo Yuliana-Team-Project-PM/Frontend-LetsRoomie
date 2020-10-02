@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
@@ -8,6 +8,21 @@ import FavoriteButton from '../components/FavoriteButton';
 import '../assets/styles/components/PerfilEdit.scss';
 
 const Profile = () => {
+    const [selectedFile, setSelectedFile]=useState()
+    const onChangeHandler=event=>{
+        setSelectedFile( event.target.files[0])
+      }
+    const onClickHandler = () => {
+        const data = new FormData() 
+        data.append('galleryImage ', btoa(selectedFile))
+        fetch("https://api-letsroomie.herokuapp.com/api/profile/multipleUpload", {
+            method: "POST",
+            body: data
+          });
+          
+    }
+
+    
     return(
         <>
             <Navbar />
@@ -25,6 +40,8 @@ const Profile = () => {
                             Descripción personal:
                         </label>
                         <textarea name="comentarios" rows="10" cols="30"></textarea>
+                        <label htmlFor="">Imagen</label>
+                        <input type="file" name="file" onChange={onChangeHandler}/>
                     </div>
                     <label htmlFor="">Elige tus intereses:</label>
                     <div className="PerfilEdit__interest">
@@ -34,7 +51,7 @@ const Profile = () => {
                             <div className="PerfilEdit__interest--item">Bicicletas</div>
                     </div>
 
-                    <button className='PerfilEdit__button'>Guardar</button>
+                    <button className='PerfilEdit__button' onClick={onClickHandler}>Guardar</button>
 
                 </section>
             <FavoriteButton />

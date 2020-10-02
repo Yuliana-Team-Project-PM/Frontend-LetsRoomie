@@ -6,10 +6,7 @@ import LogoHeader from '../components/LogoHeader';
 import '../assets/styles/components/Login.scss';
 
 
-
-const Login = () => {
-
-
+const Login = ({history}) => {
     
     const LoginValidation=()=>{
         let emailUser=document.getElementById("email").value
@@ -30,7 +27,10 @@ const Login = () => {
             .then(response => {
                 if(response.error===""){
                     sessionStorage.setItem('Token', response.body.token);
+                    sessionStorage.setItem('userEmail',emailUser);
                     //alert(sessionStorage.getItem('Token'))
+                    history.push("/")
+
                 }else{
                     alert("No se encuentra registrado")
                 }
@@ -48,7 +48,8 @@ const Login = () => {
                         <input type="email" name="" id="email"/>
                         <h3>Contraseña</h3>
                         <input type="password" name="" id="password"/>
-                        <Link to="/"><button type="button" className='Login__card--button' onClick={LoginValidation}>Entrar</button></Link>
+                        <div id="hola"></div>
+                        <button type="button" className='Login__card--button' onClick={LoginValidation}>Entrar</button>
                     </form>
                 </div>
                 <h4 className='Login__subtitle'>¿Aún no tienes una cuenta? <Link to='select-acount' >Crea una aquí</Link></h4>
