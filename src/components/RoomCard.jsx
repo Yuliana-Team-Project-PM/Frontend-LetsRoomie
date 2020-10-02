@@ -9,17 +9,7 @@ import { MdAttachMoney } from 'react-icons/md';
 import '../assets/styles/components/RoomCard.scss';
 
 const RoomCard = ({images,description,namePlace,location,to,price,user}) => {
-    const [fav, setFav] = useState('#888888');
-
-    // useEffect
-
-    const addFav = () => {
-        setFav('#E94560');
-
-        if(setFav === '#E94560') {
-            setFav('#888888')
-        }
-    }
+    const [favorite, setFavorite] = useState(false);
 
     return(
         <section className='RoomCard'>
@@ -27,11 +17,17 @@ const RoomCard = ({images,description,namePlace,location,to,price,user}) => {
                 <img src={images[0]} alt='imagen de habitación'/>
             </div>
             <div className='RoomCard__title'>
+
                 <div>
                     <h2>{namePlace}</h2>
                     <p>{description.substr(0,200)}...</p>
                 </div>
-                <AiFillHeart style={{color:fav}} onClick={addFav} className='RoomCard__title--fav' data-tip data-for='favTip' />
+
+                <AiFillHeart
+                    className={favorite ? 'true' : 'false'}
+                    onClick={() => setFavorite(!favorite)}
+                    data-tip data-for='favTip' 
+                />
 
                 <ReactTooltip id='favTip' place='top' effect='solid' >
                     Agrega a tus favoritos

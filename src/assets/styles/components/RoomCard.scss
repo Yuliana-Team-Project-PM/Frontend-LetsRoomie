@@ -42,7 +42,19 @@
         }
 
         &--fav {
+            // font-size: 2em;
+
+        }
+
+        .false {
             font-size: 2em;
+
+            color: #888888;
+        }
+        .true {
+            font-size: 2em;
+            
+            color: $secondary-color;
         }
     }
 
