@@ -7,17 +7,12 @@
     padding: 1em 0;
     border-radius: 20px;
     margin-bottom: 2em;
-    // display: flex;
-    // flex-direction: column;
-    // justify-content: space-between;
 
 
     &__img {
-        // background: red;
         height: 177px;
         width: 95%;
         margin: 0 auto;
-        // padding-top: 1em;
 
         
         & img {
@@ -29,10 +24,10 @@
     }
 
     &__title {
-        display: flex;
-        align-items: center;
+        display: grid;
+        grid-template-columns: 90% 10%;
         justify-content: space-between;
-        padding: 1em 2em;
+        padding: 1em;
 
 
         & h2 {
@@ -43,17 +38,16 @@
         & p {
             margin: 0;
             font-size: 14px;
+            margin-right: 1em;
         }
 
         &--fav {
-            // color: $secondary-color;
-            font-size: 1.5em;
+            font-size: 2em;
         }
     }
 
     &__description {
-        // background: red;
-        padding-left: 2em;
+        padding-left: 1em;
         
         &--location, &--price {
             display: flex;
@@ -77,6 +71,7 @@
                 width: 50px;
                 height: 50px;
                 border-radius: 50%;
+                object-fit: cover;
             }
 
             &-text {

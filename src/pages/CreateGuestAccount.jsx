@@ -52,8 +52,8 @@ const CreateGuestAccount = () => {
     return(
         <> 
             <LogoHeader /> 
-            <div className="CreateGuestAccount">
-                <div className="CreateGuestAccount-form">
+            <section className="CreateGuestAccount">
+                <div className="CreateGuestAccount__form">
                     <h2>Cuenta de huesped</h2>
                     <form action="" className="CreateGuestAccount__fields">
                         <label htmlFor="">Nombre Completo</label>
@@ -72,7 +72,7 @@ const CreateGuestAccount = () => {
                     </form>
                 </div>
                 <div><VerticalBanner ilustration={guest} /></div>
-            </div>
+            </section>
         </>
     );
 };

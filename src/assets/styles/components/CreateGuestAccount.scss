@@ -4,21 +4,25 @@
     display: grid;
     grid-template-columns: 2fr 1fr;
     color: $primary-color;
-}
-.CreateGuestAccount-form{
-    margin:auto;
-}
-.CreateGuestAccount-form h2{
-    margin: 0 0 70px 0;
-}
-.CreateGuestAccount__fields{
-    display: inline-grid;
-}
-.CreateGuestAccount__fields input{
-    width: 500px;
-    margin: 25px 0 25px 0;
-    border:none;
-    border-bottom: 1px solid $primary-color;
+
+    &__form {
+        margin:auto;
+
+        h2 {
+            margin: 0 0 70px 0;
+        }
+    }
+
+    &__fields {
+        display: inline-grid;
+
+        & input {
+            width: 500px;
+            margin: 25px 0 25px 0;
+            border:none;
+            border-bottom: 1px solid $primary-color;
+        }
+    }
 }
 
 input:focus, input.form-control:focus {

@@ -15,10 +15,14 @@ const RoomCard = ({images,description,namePlace,location,to,price,user}) => {
 
     const addFav = () => {
         setFav('#E94560');
+
+        if(setFav === '#E94560') {
+            setFav('#888888')
+        }
     }
 
     return(
-        <div className='RoomCard'>
+        <section className='RoomCard'>
             <div className='RoomCard__img'>
                 <img src={images[0]} alt='imagen de habitación'/>
             </div>
@@ -32,12 +36,13 @@ const RoomCard = ({images,description,namePlace,location,to,price,user}) => {
                 <ReactTooltip id='favTip' place='top' effect='solid' >
                     Agrega a tus favoritos
                 </ReactTooltip>
-
             </div>
+
             <div className='RoomCard__description'>
                 <p className='RoomCard__description--location'><MdLocationOn size={23} />{location} </p>
                 <p className='RoomCard__description--price'><MdAttachMoney size={23} />{price} / mensual</p>
             </div>
+            
             <div className='RoomCard__roomie'>
                 <div className='RoomCard__roomie--profile'>
                     <img src={user.avatar} alt="foto de perfil"/>
@@ -50,7 +55,8 @@ const RoomCard = ({images,description,namePlace,location,to,price,user}) => {
                     <button className='RoomCard__roomie--button'>Ver más</button>
                 </Link>
             </div>
-        </div>
+        
+        </section>
     );
 };
 

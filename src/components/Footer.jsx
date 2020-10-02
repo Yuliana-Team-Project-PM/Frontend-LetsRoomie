@@ -8,7 +8,7 @@ const Footer = () => {
         <footer className="footer">
             <section className="footer__cta">
                 <h3>Miles de personas han encontrado su Roomate apropiado, ahora es tu turno</h3>
-                <Link to='select-acount' className="Hero__title--button">LET'S ROOMIE</Link>
+                <Link to='select-acount'><button className="footer__cta--button">LET'S ROOMIE</button></Link>
             </section>
             <section className="footer__icons">
                 <div>
