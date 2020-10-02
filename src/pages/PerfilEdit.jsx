@@ -34,7 +34,6 @@ const PerfilEdit = () => {
                         <div>Cine</div>
                         <div>Bicicletas</div>
                 </div>
-
             </section>
             <FavoriteButton />
             <Footer />

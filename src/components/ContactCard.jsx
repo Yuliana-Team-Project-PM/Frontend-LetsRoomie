@@ -3,20 +3,16 @@ import React, { useState, useEffect } from 'react';
 import { AiOutlineWhatsApp, AiOutlineMail } from 'react-icons/ai'
 
 import '../assets/styles/components/ContactCard.scss';
+import useRoomCardinfo from '../hooks/useRoomCardinfo';
 
-const ContactCard = () => {
-    useEffect(() => {
-        fetch(API)
-            .then(response => response.json())
-            .then(data => setLugares(data));
-    }, []);
+const ContactCard = ({price, user}) => {
 
     return(
         <div className='ContactCard'>
-            <h2 className='ContactCard__title'>2,300 / mensual</h2>
+            <h2 className='ContactCard__title'>${price} / mensual</h2>
             <h4 className='ContactCard__subtitle'>Contáctame vía</h4>
-            <button className='ContactCard__button' onClick={sendWapp} >WhastApp <AiOutlineWhatsApp size={18} /> </button>
-            <button className='ContactCard__button'>Mail <AiOutlineMail size={18} /></button>
+            <a href="https://api.whatsapp.com/send?phone=573166245285&text= Hola!%20Quiero%20ser%20tu%20Roomie!" target="_blank" className='ContactCard__button'>WhatsApp</a>
+            <a  href="mailto:sebastian960714@gmail.com" target="_blank" className='ContactCard__button'>Mail</a>
         </div>
     );
 }

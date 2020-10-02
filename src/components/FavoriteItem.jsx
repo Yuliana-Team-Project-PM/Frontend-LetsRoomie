@@ -7,7 +7,7 @@ import '../assets/styles/components/FavoriteItem.scss';
 
 const FavoriteItem = () => {
     return(
-        <div className='FavoriteItem'>
+        <section className='FavoriteItem'>
             <div className='FavoriteItem__icon'>
                 <AiFillHeart className='FavoriteItem__icon--heart' />
             </div>
@@ -19,7 +19,7 @@ const FavoriteItem = () => {
             <div className='FavoriteItem__img'>
                 <img src="https://images.unsplash.com/photo-1600489000360-34bd69182634?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1267&q=80" alt=""/>
             </div>
-        </div>
+        </section>
     );
 };
 

@@ -10,24 +10,27 @@ import useRoomCardinfo from '../hooks/useRoomCardinfo'
 import '../assets/styles/components/Home.scss';
 
 const Home = () => {
-   const API='https://api-letsroomie.herokuapp.com/place'
+   const API='https://api-letsroomie.herokuapp.com/placea'
    const lugares=useRoomCardinfo(API)
+   console.log(lugares)
     return(
         <>
             <Navbar />
-            <Hero />
-            <SearchBar />
-            <section className="RoomSuggestion">
-                <h1 className="RoomSuggestion__title">Tenemos la ubicación ideal para ti</h1>
-                <section className="RoomSuggestion__grid">
-                    {lugares.body.map(item=>
-                        <RoomCard to={`/room-details/${item._id}`} key={item._id} {...item}/>
+            <main>
+                <Hero />
+                <SearchBar />
+                <section className="RoomSuggestion">
+                    <h1 className="RoomSuggestion__title">Tenemos la ubicación ideal para ti</h1>
+                    <section className="RoomSuggestion__grid">
+                        {lugares.body.map(item=>
+                            <RoomCard to={`/room-details/${item._id}`} key={item._id} {...item}/>
 
-                    )
-                    }
+                        )
+                        }
+                    </section>
                 </section>
-            </section>
-            <FavoriteButton />
+                <FavoriteButton />
+            </main>
             <Footer />
         </>
     );

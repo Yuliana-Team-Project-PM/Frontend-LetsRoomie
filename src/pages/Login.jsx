@@ -1,5 +1,5 @@
 import React,{ useState , useEffect} from 'react';
-import { Link } from 'react-router-dom';
+import { Link,withRouter } from 'react-router-dom';
 
 import LogoHeader from '../components/LogoHeader';
 
@@ -18,26 +18,23 @@ const Login = () => {
             "email": emailUser,
             "password": psswUser
             }
-        fetch('https://api-letsroomie.herokuapp.com/auth/signin',{
+        console.log(datosLogin)
+        fetch('https://api-letsroomie.herokuapp.com/signin',{
             method: 'POST',
             body: JSON.stringify(datosLogin),
             headers:{
                 'Content-Type': 'application/json'
-                }
-            })
-            .then(function(response) {
-                return response;
-            })
-            .then(function(data) {
-                console.log('data = ', data);
-                if(data.body===""){
-                    alert("Usted no tiene aún una cuenta con nosotos")
+              }
+            }).then(res => res.json())
+            .catch(error => console.error('Error:', error))
+            .then(response => {
+                if(response.error===""){
+                    sessionStorage.setItem('Token', response.body.token);
+                    //alert(sessionStorage.getItem('Token'))
                 }else{
-                    alert(data.body.token)
-                    sessionStorage.setItem('Token', data.body.token);
-                    //location.href ="http://localhost:8080/";
+                    alert("No se encuentra registrado")
                 }
-            })
+            });
     }
 
     return(
@@ -51,7 +48,7 @@ const Login = () => {
                         <input type="email" name="" id="email"/>
                         <h3>Contraseña</h3>
                         <input type="password" name="" id="password"/>
-                        <button type="button" className='Login__card--button' onClick={LoginValidation}>Entrar</button>
+                        <Link to="/"><button type="button" className='Login__card--button' onClick={LoginValidation}>Entrar</button></Link>
                     </form>
                 </div>
                 <h4 className='Login__subtitle'>¿Aún no tienes una cuenta? <Link to='select-acount' >Crea una aquí</Link></h4>
@@ -60,4 +57,4 @@ const Login = () => {
     );
 };
 
-export default Login;
+export default withRouter(Login);
