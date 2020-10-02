@@ -10,10 +10,11 @@ const Favorites = () => {
     return(
         <>
             <Navbar />
-            <div className='Favorites'>
+            <section className='Favorites'>
                 <h1 className='Favorites__title'>Tus Favoritos</h1>
                 <FavoriteItem />
-            </div>
+                <FavoriteItem />
+            </section>
         </>
     );
 };

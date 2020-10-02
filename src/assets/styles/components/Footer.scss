@@ -1,37 +1,35 @@
-/*.footer{
-    width: 100%;
-    height: 150px;
-    display: grid;
-    align-items: center;
-    background-color: #F2F2F2;
-}
-.RedeSociales{
-    text-align: center;
-}
-.footer h2{
-    margin: 0;
-}
-.footer__text{
-    color: white;
-    background-color: #2D333A;
-}*/
+@import '../Vars.scss';
+
 .footer{
     color: white;
     background-color:#2D333A ;
+
+    &__cta {
+        height: 110px;
+        text-align: center;
+        padding: 10px;
+        border-bottom: .5px solid $dark-color;
+
+        h3 {
+            margin: 1em 0 0 0;
+        }
+
+        &--button {
+            @include base-button($gray-color, $secondary-color, $border-button);
+        }
+    }
+
+    &__icons {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin: 0px 100px;
+    }
 }
 .footer__cta{
-    height: 110px;
-    text-align: center;
-    padding: 10px;
-    border-bottom: .5px solid #26292F;
 }
 .Hero__title--button{
-    text-decoration: none;
 }
 .footer__icons{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin: 0px 100px;
 }
 

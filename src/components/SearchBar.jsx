@@ -14,8 +14,6 @@ const SearchBar = () => {
     }
     return(
         <div className='Searchbar'>
-            {/* <MdSearch className='Searchbar__icon' size='1.75em'/> */}
-
             <input type='text' placeholder='Busca tu ubicación preferida' className='Searchbar__input' id="Searchbar__input" />
             <Link to='/SearchResults'>
                 <button className='Searchbar__button' onClick={Busqueda}>Buscar</button>
