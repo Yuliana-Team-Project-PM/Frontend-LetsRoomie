@@ -11,6 +11,10 @@ import '../assets/styles/components/RoomCard.scss';
 const RoomCard = ({images,description,namePlace,location,to,price,user}) => {
     const [favorite, setFavorite] = useState(false);
 
+    const handleFavorite = () => {
+        setFavorite(!favorite)
+    }
+
     return(
         <section className='RoomCard'>
             <div className='RoomCard__img'>
@@ -25,7 +29,7 @@ const RoomCard = ({images,description,namePlace,location,to,price,user}) => {
 
                 <AiFillHeart
                     className={favorite ? 'true' : 'false'}
-                    onClick={() => setFavorite(!favorite)}
+                    onClick={handleFavorite}
                     data-tip data-for='favTip' 
                 />
 
