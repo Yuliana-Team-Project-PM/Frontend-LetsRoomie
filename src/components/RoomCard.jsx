@@ -12,7 +12,20 @@ const RoomCard = ({images,description,namePlace,location,to,price,user}) => {
     const [favorite, setFavorite] = useState(false);
 
     const handleFavorite = () => {
-        setFavorite(!favorite)
+        if(sessionStorage.getItem('Token')===""){
+            alert("Inicia cuenta primero")
+        }
+        else{
+            setFavorite(!favorite)
+            if(favorite){
+                //Retiro de favoritos
+                
+            }else{
+                // Agrego a favoritos
+                
+                
+            }
+        }
     }
 
     return(
