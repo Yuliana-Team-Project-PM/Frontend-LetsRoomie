@@ -1,26 +1,47 @@
 @import '../Vars.scss';
 
 .PerfilEdit{
-    width: 50%;
-    margin: 80px auto;
-    color: #3D1BC5;
+
+    @include container (900px);
+    // width: 50%;
+    // margin: 80px auto;
+    // color: #3D1BC5;
 
     &__photo {
         display: flex;
         align-items: center;
-        margin-bottom: 40px;
+        margin-bottom: 3em;
 
         img {
             width: 100px;
             height: 100px;
-            margin-left: 100px;
+            // margin-left: 100px;
             border-radius: 50%;
+            object-fit: contain;
+        }
+
+        input {
+            border: none;
+            font-family: inherit;
+            margin-left: 1.5em;
+        }
+    }
+
+    &__text {
+        label {
+            // margin-bottom: 2.5em;
+        }
+        input {
+            border: none;
+            border-bottom: 1px solid $primary-color;
+            display: block;
+            width: 100%;
+            margin-bottom: 3.5em;
         }
     }
 
     &__PersonalDesc {
-        display: grid;
-        margin-bottom: 20px;
+        margin-bottom: 3em;
 
         & textarea {
             width: 100%;
@@ -50,14 +71,40 @@
 
     &__button {
         @include base-button($gray-color, $secondary-color, $border-button);
-        margin: 4em 0 0 0 ;
+        margin: 4em 0;
     }
 }
 
-@media screen and (max-width: 425px) {
+@media screen and (max-width: 768px) {
     .PerfilEdit {
+        @include container (700px);
+        
+    }
+}
+
+@media screen and (max-width: 426px) {
+    .PerfilEdit {
+        @include container (395px);
+    }
+}
+
+@media screen and (max-width: 376px) {
+    .PerfilEdit {
+        @include container (345px);
+
         &__photo {
-            display: block;
+            flex-direction: column;
+
+            img {
+                margin-bottom: 1em;
+            }
+            // margin-left: 0;
         }
+    }
+}
+
+@media screen and (max-width: 321px) {
+    .PerfilEdit {
+        @include container (310px);
     }
 }

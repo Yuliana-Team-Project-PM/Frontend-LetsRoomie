@@ -3,44 +3,44 @@ import { Link } from 'react-router-dom';
 import ReactTooltip from 'react-tooltip';
 import Swal from 'sweetalert2'
 import useRoomCardinfo from '../hooks/useRoomCardinfo'
-import { AiOutlineHeart, AiFillHeart } from 'react-icons/ai'; 
-import { MdLocationOn } from 'react-icons/md'; 
-import { MdAttachMoney } from 'react-icons/md'; 
+import { AiOutlineHeart, AiFillHeart } from 'react-icons/ai';
+import { MdLocationOn } from 'react-icons/md';
+import { MdAttachMoney } from 'react-icons/md';
 
 import '../assets/styles/components/RoomCard.scss';
 
-const RoomCard = ({images,description,namePlace,location,to,price,user,_id}) => {
+const RoomCard = ({ images, description, namePlace, location, to, price, user, _id }) => {
     const [favorite, setFavorite] = useState(false);
-    let email=sessionStorage.getItem('userEmail')
-    const API=`https://api-letsroomie.herokuapp.com/user/${email}`
-    const userData=useRoomCardinfo(API)
+    let email = sessionStorage.getItem('userEmail')
+    const API = `https://api-letsroomie.herokuapp.com/user/${email}`
+    const userData = useRoomCardinfo(API)
     let idUser
-    console.log("data: "+userData.body)
-    userData.body.map(item=>{
-        idUser=item._id
-        sessionStorage.setItem('idUser',idUser)
-        }
+    console.log("data: " + userData.body)
+    userData.body.map(item => {
+        idUser = item._id
+        sessionStorage.setItem('idUser', idUser)
+    }
     )
 
 
 
     const handleFavorite = () => {
-        if(sessionStorage.getItem('Token')===""){
+        if (sessionStorage.getItem('Token') === "") {
             Swal.fire("Necesitas iniciar sesión")
         }
-        else{
-            let Token=sessionStorage.getItem('Token')
+        else {
+            let Token = sessionStorage.getItem('Token')
             setFavorite(!favorite)
 
-            if(favorite){
+            if (favorite) {
                 //Retiro de favoritos
-                let favId= sessionStorage.getItem('favId');
+                let favId = sessionStorage.getItem('favId');
                 console.log(favId)
                 fetch(`https://api-letsroomie.herokuapp.com/fav/${favId}`,
                     {
-                        method: 'DELETE', 
-                        headers:{
-                            'access-token':Token
+                        method: 'DELETE',
+                        headers: {
+                            'access-token': Token
                         }
                     })
                     .then(res => res.json())
@@ -49,23 +49,23 @@ const RoomCard = ({images,description,namePlace,location,to,price,user,_id}) => 
                         console.log(response)
                     });
 
-                
-            }else{
+
+            } else {
                 // Agrego a favorito
-                let datosFav={
+                let datosFav = {
                     "place": _id,
                     "user": idUser
-                    }
+                }
 
                 console.log(Token)
                 console.log(datosFav)
                 fetch('https://api-letsroomie.herokuapp.com/fav',
                     {
-                        method: 'POST', 
+                        method: 'POST',
                         body: JSON.stringify(datosFav),
-                        headers:{
+                        headers: {
                             'Content-Type': 'application/json',
-                            'access-token':Token
+                            'access-token': Token
                         }
                     })
                     .then(res => res.json())
@@ -75,27 +75,27 @@ const RoomCard = ({images,description,namePlace,location,to,price,user,_id}) => 
                         sessionStorage.setItem('favId', response.body._id)
                         Swal.fire("Agregado a favoritos")
                     });
-                
+
             }
         }
     }
 
-    return(
+    return (
         <section className='RoomCard'>
             <div className='RoomCard__img'>
-                <img src={images[0]} alt='imagen de habitación'/>
+                <img src={images[0]} alt='imagen de habitación' />
             </div>
             <div className='RoomCard__title'>
 
                 <div>
                     <h2>{namePlace}</h2>
-                    <p>{description.substr(0,200)}...</p>
+                    <p>{description.substr(0, 200)}...</p>
                 </div>
 
                 <AiFillHeart
                     className={favorite ? 'true' : 'false'}
                     onClick={handleFavorite}
-                    data-tip data-for='favTip' 
+                    data-tip data-for='favTip'
                 />
 
                 <ReactTooltip id='favTip' place='top' effect='solid' >
@@ -107,10 +107,10 @@ const RoomCard = ({images,description,namePlace,location,to,price,user,_id}) => 
                 <p className='RoomCard__description--location'><MdLocationOn size={23} />{location} </p>
                 <p className='RoomCard__description--price'><MdAttachMoney size={23} />{price} / mensual</p>
             </div>
-            
+
             <div className='RoomCard__roomie'>
                 <div className='RoomCard__roomie--profile'>
-                    <img src={user.avatar} alt="foto de perfil"/>
+                    <img src={user.avatar} alt="foto de perfil" />
                     <div className='RoomCard__roomie--profile-text'>
                         <p>{user.name}</p>
                         <span>ROOMIE</span>
@@ -120,7 +120,7 @@ const RoomCard = ({images,description,namePlace,location,to,price,user,_id}) => 
                     <button className='RoomCard__roomie--button'>Ver más</button>
                 </Link>
             </div>
-        
+
         </section>
     );
 };
