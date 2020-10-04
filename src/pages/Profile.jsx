@@ -90,16 +90,46 @@ const Profile = () => {
                     </div>
                     <label htmlFor="">Elige tus intereses:</label>
                     <div className="PerfilEdit__interest">
-                        <Interest topic='Cine' />
-                        <Interest topic='Literatura' />
-                        <Interest topic='Deporte' />
-                        <Interest topic='Fiestas' />
-                        <Interest topic='Estudio' />
-                        <Interest topic='Música' />
-                        <Interest topic='Amigos' />
-                        <Interest topic='Fiestas' />
-                        <Interest topic='Arte' />
-                        <Interest topic='Trabajo' />
+                        <label className="PerfilEdit__interest--item">
+                            <input type="checkbox" id="cine" value="" />
+                                Cine
+                            </label>
+                        <label className="PerfilEdit__interest--item">
+                            <input type="checkbox" id="literature" value="" />
+                                Literatura
+                            </label>
+                        <label className="PerfilEdit__interest--item">
+                            <input type="checkbox" id="sports" value="" />
+                                Deporte
+                            </label>
+                        <label className="PerfilEdit__interest--item">
+                            <input type="checkbox" id="party" value="" />
+                                Fiestas
+                            </label>
+                        <label className="PerfilEdit__interest--item">
+                            <input type="checkbox" id="study" value="" />
+                                Estudio
+                            </label>
+                        <label className="PerfilEdit__interest--item">
+                            <input type="checkbox" id="music" value="" />
+                                Música
+                            </label>
+                        <label className="PerfilEdit__interest--item">
+                            <input type="checkbox" id="friends" value="" />
+                                Amigos
+                            </label>
+                        <label className="PerfilEdit__interest--item">
+                            <input type="checkbox" id="travels" value="" />
+                                Viajes
+                            </label>
+                        <label className="PerfilEdit__interest--item">
+                            <input type="checkbox" id="art" value="" />
+                                Arte
+                            </label>
+                        <label className="PerfilEdit__interest--item">
+                            <input type="checkbox" id="work" value="" />
+                                Trabajo
+                            </label>
                     </div>
 
                     <button className='PerfilEdit__button' onClick={onClickHandler}>Guardar</button>
