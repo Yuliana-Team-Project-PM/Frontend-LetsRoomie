@@ -1,0 +1,38 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Hero /> Hero Snapshot 1`] = `
+<section
+  className="Hero"
+>
+  <div
+    className="Hero__gradient"
+  />
+  <div
+    className="Hero__title"
+  >
+    <h1
+      className="Hero__title--description"
+    >
+      Te ayudamos a encontrar tu 
+      <span>
+        espacio ideal
+      </span>
+       con el 
+      <span>
+        ROOMIE
+      </span>
+       correcto.
+    </h1>
+    <a
+      href="/select-acount"
+      onClick={[Function]}
+    >
+      <button
+        className="Hero__title--button"
+      >
+        Únete
+      </button>
+    </a>
+  </div>
+</section>
+`;

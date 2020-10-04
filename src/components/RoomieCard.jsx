@@ -18,7 +18,7 @@ Observaciones
 */
 
 const RoomieCard = ({about,name,avatar}) => {
-        console.log(about)
+        // console.log(about)
         return(
             <div className="RoomieCard">
                 <section className="RoomieCard__header">

@@ -21,7 +21,7 @@ const Home = () => {
                 <Hero />
                 <SearchBar />
                 <section className="RoomSuggestion">
-    <h1 className="RoomSuggestion__title">Tenemos la ubicación ideal para ti</h1>
+                    <h1 className="RoomSuggestion__title">Tenemos la ubicación ideal para ti</h1>
                     <section className="RoomSuggestion__grid">
                         {lugares.body.map(item=>
                             <RoomCard to={`/room-details/${item._id}`} key={item._id} {...item}/>
