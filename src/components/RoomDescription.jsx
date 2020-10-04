@@ -38,4 +38,4 @@ const RoomDescription=({namePlace,location,description,bath,cleaning,closet,park
         )
 }
 
-export default RoomDescription
+export default RoomDescription;
