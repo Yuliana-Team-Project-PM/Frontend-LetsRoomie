@@ -2,7 +2,7 @@
 
 .footer{
     color: white;
-    background-color:#2D333A ;
+    background-color:$dark-color;
 
     &__cta {
         height: 110px;
@@ -23,13 +23,43 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-        margin: 0px 100px;
+        // margin: 0px 100px;
     }
 }
-.footer__cta{
+
+@media screen and (max-width: 426px) {
+    .footer {
+        // $container(400px);
+
+        &__icons {
+            display: block;
+
+            &--social {
+                // display: flex;
+                text-align: center;
+                margin: 3em 0 ;
+            }
+
+            &--copy {
+                text-align: center;
+                // margin: .6em 0;
+                padding-bottom: 1em;
+
+                p {
+                    margin: 0;
+                }
+            }
+        }
+    }
 }
-.Hero__title--button{
-}
-.footer__icons{
+
+@media screen and (max-width: 321px) {
+    .footer {
+        &__cta {
+            h3 {
+                font-size: .85em;
+            }
+        }
+    }
 }
 
