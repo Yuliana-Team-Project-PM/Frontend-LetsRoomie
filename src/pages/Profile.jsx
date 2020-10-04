@@ -20,7 +20,33 @@ const Profile = () => {
             body: data
           });
 
-
+        // Envío de datos
+        let idUser=sessionStorage.getItem('idUser')
+        let updateUser={
+            "email": "a@a.com",
+            "password": "abcdefgh",
+            "phone": "15151589",
+            "name": "Prueba Update",
+            "avatar": "string",
+            "isHost": true,
+            "about": "Una persona muy calmada",
+            "i1": true,
+            "i2": true,
+            "i3": true,
+            "i4": true,
+            "i5": true,
+            "i6": true,
+            "i7": true,
+            "i8": true,
+            "i9": true,
+            "i10": true
+        }
+        console.log(updateUser)
+        console.log(idUser)
+        fetch(`https://api-letsroomie.herokuapp.com/api/users/${idUser}`, {
+            method: "PUT",
+            body: updateUser
+          });
           
     }
 
@@ -38,12 +64,16 @@ const Profile = () => {
                         <img src="https://resizer.codigounico.com/resizer/resizer.php?imagen=https://www.codigounico.com/wp-content/uploads/sites/2/2020/01/las-mujeres-mas-sexys-de-instagram-en-2020-2.jpg&nuevoancho=750&crop=0" alt="foto de perfil"/>
                         <input type="file" name="file" onChange={onChangeHandler}/>
                     </div>
-                    <label htmlFor="">Nombre:</label>
-                    <input type="text" name="" id=""/>
-                    <label htmlFor="">Email:</label>
-                    <input type="text"/>
-                    <label htmlFor="">Contraseña</label>
-                    <input type="password"/>
+                    <form action="" className="PerfilEdit__form">
+                        <label htmlFor="">Nombre:</label>
+                        <input type="text" name="" id=""/>
+                        <label htmlFor="">Email:</label>
+                        <input type="text"/>
+                        <label htmlFor="">Contraseña</label>
+                        <input type="password"/>
+                        <label htmlFor="">Teléfono</label>
+                        <input type="number"/>
+                    </form>
                     <div className="PerfilEdit__PersonalDesc">
                         <label htmlFor="">
                             Descripción personal:

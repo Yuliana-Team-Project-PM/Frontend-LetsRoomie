@@ -1,4 +1,5 @@
-import React,{ Suspense,lazy} from 'react';
+import React from 'react';
+import { Suspense,lazy} from 'react';
 
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
@@ -24,7 +25,7 @@ const Home = () => {
     <h1 className="RoomSuggestion__title">Tenemos la ubicación ideal para ti</h1>
                     <section className="RoomSuggestion__grid">
                         {lugares.body.map(item=>
-                            <Suspense fallback={<h1>Cargando ...</h1>}>
+                            <Suspense fallback={<h1>Cargando...</h1>}>
                             <RoomCard to={`/room-details/${item._id}`} key={item._id} {...item}/>
                             </Suspense>
                         )

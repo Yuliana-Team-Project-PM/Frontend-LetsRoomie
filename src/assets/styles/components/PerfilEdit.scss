@@ -14,10 +14,20 @@
             width: 100px;
             height: 100px;
             margin-left: 100px;
+            margin-right: 20px;
             border-radius: 50%;
         }
     }
-
+    &__form{
+        display: grid;
+        padding: 5px;
+    }
+    &__form input{
+        border: none;
+        border-bottom:1px solid #3D1BC5;
+        outline: none;
+        margin: 10px 0;
+    }
     &__PersonalDesc {
         display: grid;
         margin-bottom: 20px;

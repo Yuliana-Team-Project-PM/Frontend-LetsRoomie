@@ -6,18 +6,7 @@ import Footer from '../components/Footer';
 
 const AddRoom = () => {
     const saveRoom=()=>{
-
-        fetch('https://api-letsroomie.herokuapp.com/signin',{
-            method: 'POST',
-            body: JSON.stringify(datosLogin),
-            headers:{
-                'Content-Type': 'application/json'
-              }
-            }).then(res => res.json())
-            .catch(error => console.error('Error:', error))
-            .then(response => {
-                console.log(response)
-            });
+        alert("ey")
     }
 
     return(
