@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter, Switch , Route } from 'react-router-dom'
+import { BrowserRouter, Switch, Route } from 'react-router-dom'
 
 import '../assets/styles/App.scss';
 
@@ -15,8 +15,8 @@ import Favorites from '../pages/Favorites';
 import AddRoom from '../pages/AddRoom';
 import Profile from '../pages/Profile';
 
-function App(){
-    return(
+function App() {
+    return (
         <BrowserRouter>
             <Switch>
                 <Route exact path="/" component={Home} />

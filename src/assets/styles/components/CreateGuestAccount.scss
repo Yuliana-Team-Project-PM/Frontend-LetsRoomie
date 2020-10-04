@@ -15,12 +15,24 @@
 
     &__fields {
         display: inline-grid;
+        margin-bottom: 3em;
+
+        label {
+            font-weight: bold;
+        }
 
         & input {
             width: 500px;
             margin: 25px 0 25px 0;
             border:none;
             border-bottom: 1px solid $primary-color;
+        }
+
+        &--interest {
+            display: flex;
+            flex-wrap: wrap;
+            width: 70%;
+            margin-bottom: 2em;
         }
     }
 }

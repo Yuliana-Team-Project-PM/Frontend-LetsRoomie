@@ -4,16 +4,18 @@ import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import SearchBar from '../components/SearchBar';
 import FavoriteButton from '../components/FavoriteButton';
+import Interest from '../components/Interest';
 
 import '../assets/styles/components/PerfilEdit.scss';
 
 const Profile = () => {
-    const [selectedFile, setSelectedFile]=useState()
-    const onChangeHandler=event=>{
-        setSelectedFile( event.target.files[0])
-      }
+    const [selectedFile, setSelectedFile] = useState()
+    const onChangeHandler = event => {
+        setSelectedFile(event.target.files[0])
+    }
+
     const onClickHandler = () => {
-        const data = new FormData() 
+        const data = new FormData()
         data.append('galleryImage ', btoa(selectedFile))
         fetch("https://api-letsroomie.herokuapp.com/api/profile/multipleUpload", {
             method: "POST",
@@ -50,47 +52,49 @@ const Profile = () => {
           
     }
 
-    
-    return(
+
+    return (
         <>
             <Navbar />
-                <SearchBar />
-                <section className="PerfilEdit">
-                    <div className="PerfilEdit__Title">
-                        <h2>Edita tu perfil</h2>
-                    </div>
-                    <div className="PerfilEdit__photo">
-                        <p>Foto de perfil:</p>
-                        <img src="https://resizer.codigounico.com/resizer/resizer.php?imagen=https://www.codigounico.com/wp-content/uploads/sites/2/2020/01/las-mujeres-mas-sexys-de-instagram-en-2020-2.jpg&nuevoancho=750&crop=0" alt="foto de perfil"/>
-                        <input type="file" name="file" onChange={onChangeHandler}/>
-                    </div>
-                    <form action="" className="PerfilEdit__form">
-                        <label htmlFor="">Nombre:</label>
-                        <input type="text" name="" id=""/>
-                        <label htmlFor="">Email:</label>
-                        <input type="text"/>
-                        <label htmlFor="">Contraseña</label>
-                        <input type="password"/>
-                        <label htmlFor="">Teléfono</label>
-                        <input type="number"/>
-                    </form>
-                    <div className="PerfilEdit__PersonalDesc">
-                        <label htmlFor="">
-                            Descripción personal:
+            <SearchBar />
+            <section className="PerfilEdit">
+                <div className="PerfilEdit__Title">
+                    <h2>Edita tu perfil</h2>
+                </div>
+                <div className="PerfilEdit__photo">
+                    <p>Foto de perfil:</p>
+                    <img src="https://resizer.codigounico.com/resizer/resizer.php?imagen=https://www.codigounico.com/wp-content/uploads/sites/2/2020/01/las-mujeres-mas-sexys-de-instagram-en-2020-2.jpg&nuevoancho=750&crop=0" alt="foto de perfil" />
+                    <input type="file" name="file" onChange={onChangeHandler} />
+                </div>
+                <label htmlFor="">Nombre:</label>
+                <input type="text" name="" id="" />
+                <label htmlFor="">Email:</label>
+                <input type="text" />
+                <label htmlFor="">Contraseña</label>
+                <input type="password" />
+                <div className="PerfilEdit__PersonalDesc">
+                    <label htmlFor="">
+                        Descripción personal:
                         </label>
-                        <textarea name="comentarios" rows="10" cols="30"></textarea>
-                    </div>
-                    <label htmlFor="">Elige tus intereses:</label>
-                    <div className="PerfilEdit__interest">
-                            <div className="PerfilEdit__interest--item">Música</div>
-                            <div className="PerfilEdit__interest--item">Literatura</div>
-                            <div className="PerfilEdit__interest--item">Cine</div>
-                            <div className="PerfilEdit__interest--item">Bicicletas</div>
-                    </div>
+                    <textarea name="comentarios" rows="10" cols="30"></textarea>
+                </div>
+                <label htmlFor="">Elige tus intereses:</label>
+                <div className="PerfilEdit__interest">
+                    <Interest topic='Cine' />
+                    <Interest topic='Literatura' />
+                    <Interest topic='Deporte' />
+                    <Interest topic='Fiestas' />
+                    <Interest topic='Estudio' />
+                    <Interest topic='Música' />
+                    <Interest topic='Amigos' />
+                    <Interest topic='Fiestas' />
+                    <Interest topic='Arte' />
+                    <Interest topic='Trabajo' />
+                </div>
 
-                    <button className='PerfilEdit__button' onClick={onClickHandler}>Guardar</button>
+                <button className='PerfilEdit__button' onClick={onClickHandler}>Guardar</button>
 
-                </section>
+            </section>
             <FavoriteButton />
             <Footer />
 
