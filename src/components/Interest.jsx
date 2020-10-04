@@ -11,7 +11,7 @@ const Interest = ({ topic }) => {
 
   return (
     <div
-      className={`Interest ${interest ? 'active' : 'inactive'}`}
+      className={`Interest ${interest ? 'showInterest' : 'notShowInterest'}`}
       onClick={handleInterest}>
       {topic}
     </div>
