@@ -24,14 +24,20 @@ const Profile = () => {
 
         // Envío de datos
         let idUser=sessionStorage.getItem('idUser')
+        let nombre=document.getElementById("nombre").value
+        let email=document.getElementById("email").value
+        let contraseña=document.getElementById("contraseña").value
+        let telefono=document.getElementById("telefono").value
+        let comentarios=document.getElementById("comentarios").value
+
         let updateUser={
-            "email": "correo14@gmail.com",
-            "password": "unacontraseña",
-            "phone": "573166245285",
-            "name": "Prueba Update",
+            "email": {email},
+            "password": {contraseña},
+            "phone": {telefono},
+            "name": {nombre},
             "avatar": "string",
             "isHost": true,
-            "about": "Una persona muy calmada",
+            "about": {comentarios},
             "i1": true,
             "i2": true,
             "i3": true,
@@ -70,16 +76,18 @@ const Profile = () => {
                     <input type="file" name="file" onChange={onChangeHandler} />
                 </div>
                 <label htmlFor="">Nombre:</label>
-                <input type="text" name="" id="" />
+                <input type="text" name="" id="nombre" />
                 <label htmlFor="">Email:</label>
-                <input type="text" />
+                <input type="text" id="email"/>
                 <label htmlFor="">Contraseña</label>
-                <input type="password" />
+                <input type="password" id="contraseña"/>
+                <label htmlFor="">Teléfono</label>
+                <input type="password" id="telefono"/>
                 <div className="PerfilEdit__PersonalDesc">
                     <label htmlFor="">
                         Descripción personal:
                         </label>
-                    <textarea name="comentarios" rows="10" cols="30"></textarea>
+                    <textarea name="comentarios" rows="10" cols="30" id="comentarios"></textarea>
                 </div>
                 <label htmlFor="">Elige tus intereses:</label>
                 <div className="PerfilEdit__interest">
