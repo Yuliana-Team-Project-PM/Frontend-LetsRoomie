@@ -1,5 +1,6 @@
 import React,{ useState , useEffect} from 'react';
 import { Link,withRouter } from 'react-router-dom';
+import Swal from 'sweetalert2'
 
 import LogoHeader from '../components/LogoHeader';
 
@@ -26,13 +27,14 @@ const Login = ({history}) => {
             .catch(error => console.error('Error:', error))
             .then(response => {
                 if(response.error===""){
+                    console.log(response)
                     sessionStorage.setItem('Token', response.body.token);
                     sessionStorage.setItem('userEmail',emailUser);
-                    //alert(sessionStorage.getItem('Token'))
+                    Swal.fire("Inicio de sesión exitoso")
                     history.push("/")
 
                 }else{
-                    alert("No se encuentra registrado")
+                    Swal.fire("No se encuentra registrado")
                 }
             });
     }

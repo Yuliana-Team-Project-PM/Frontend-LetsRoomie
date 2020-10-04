@@ -1,12 +1,12 @@
 import React from 'react';
-
+import { withRouter } from 'react-router-dom';
 import LogoHeader from '../components/LogoHeader';
 import VerticalBanner from '../components/VerticalBanner';
 import '../assets/styles/components/CreateGuestAccount.scss';
 
 import host from '../assets/static/host.png';
 
-const CreateHostAccount = () => {
+const CreateHostAccount = (history) => {
 
     const guestCreation=()=>{
         let name=document.getElementById("name").value
@@ -46,11 +46,10 @@ const CreateHostAccount = () => {
             .then(response => {
                 console.log(response.error)
                 if(response.error===""){
-                    alert("Registro exitoso")
-                    //Cuadrar tema de redirecciones
-                    //window.location.href ="http://localhost:8080/";
+                    Swal.fire("Registro exitoso")
+                    history.push("/login")
                 }else{
-                    alert("Registro no exitoso")
+                    Swal.fire("Registro no exitoso")
                 }
 
             });
@@ -84,4 +83,4 @@ const CreateHostAccount = () => {
     );
 };
 
-export default CreateHostAccount;
+export default  withRouter(CreateHostAccount);

@@ -19,6 +19,8 @@ const Profile = () => {
             method: "POST",
             body: data
           });
+
+
           
     }
 
@@ -34,14 +36,19 @@ const Profile = () => {
                     <div className="PerfilEdit__photo">
                         <p>Foto de perfil:</p>
                         <img src="https://resizer.codigounico.com/resizer/resizer.php?imagen=https://www.codigounico.com/wp-content/uploads/sites/2/2020/01/las-mujeres-mas-sexys-de-instagram-en-2020-2.jpg&nuevoancho=750&crop=0" alt="foto de perfil"/>
+                        <input type="file" name="file" onChange={onChangeHandler}/>
                     </div>
+                    <label htmlFor="">Nombre:</label>
+                    <input type="text" name="" id=""/>
+                    <label htmlFor="">Email:</label>
+                    <input type="text"/>
+                    <label htmlFor="">Contraseña</label>
+                    <input type="password"/>
                     <div className="PerfilEdit__PersonalDesc">
                         <label htmlFor="">
                             Descripción personal:
                         </label>
                         <textarea name="comentarios" rows="10" cols="30"></textarea>
-                        <label htmlFor="">Imagen</label>
-                        <input type="file" name="file" onChange={onChangeHandler}/>
                     </div>
                     <label htmlFor="">Elige tus intereses:</label>
                     <div className="PerfilEdit__interest">

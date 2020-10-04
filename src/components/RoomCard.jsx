@@ -1,18 +1,83 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import ReactTooltip from 'react-tooltip';
-
+import Swal from 'sweetalert2'
+import useRoomCardinfo from '../hooks/useRoomCardinfo'
 import { AiOutlineHeart, AiFillHeart } from 'react-icons/ai'; 
 import { MdLocationOn } from 'react-icons/md'; 
 import { MdAttachMoney } from 'react-icons/md'; 
 
 import '../assets/styles/components/RoomCard.scss';
 
-const RoomCard = ({images,description,namePlace,location,to,price,user}) => {
+const RoomCard = ({images,description,namePlace,location,to,price,user,_id}) => {
     const [favorite, setFavorite] = useState(false);
+    let email=sessionStorage.getItem('userEmail')
+    const API=`https://api-letsroomie.herokuapp.com/user/${email}`
+    const userData=useRoomCardinfo(API)
+    let idUser
+    console.log("data: "+userData.body)
+    userData.body.map(item=>{
+        idUser=item._id
+        sessionStorage.setItem('idUser',idUser)
+        }
+    )
+
+
 
     const handleFavorite = () => {
-        setFavorite(!favorite)
+        if(sessionStorage.getItem('Token')===""){
+            Swal.fire("Necesitas iniciar sesión")
+        }
+        else{
+            let Token=sessionStorage.getItem('Token')
+            setFavorite(!favorite)
+
+            if(favorite){
+                //Retiro de favoritos
+                let favId= sessionStorage.getItem('favId');
+                console.log(favId)
+                fetch(`https://api-letsroomie.herokuapp.com/fav/${favId}`,
+                    {
+                        method: 'DELETE', 
+                        headers:{
+                            'access-token':Token
+                        }
+                    })
+                    .then(res => res.json())
+                    .catch(error => console.error('Error:', error))
+                    .then(response => {
+                        console.log(response)
+                    });
+
+                
+            }else{
+                // Agrego a favorito
+                let datosFav={
+                    "place": _id,
+                    "user": idUser
+                    }
+
+                console.log(Token)
+                console.log(datosFav)
+                fetch('https://api-letsroomie.herokuapp.com/fav',
+                    {
+                        method: 'POST', 
+                        body: JSON.stringify(datosFav),
+                        headers:{
+                            'Content-Type': 'application/json',
+                            'access-token':Token
+                        }
+                    })
+                    .then(res => res.json())
+                    .catch(error => console.error('Error:', error))
+                    .then(response => {
+                        console.log(response)
+                        sessionStorage.setItem('favId', response.body._id)
+                        Swal.fire("Agregado a favoritos")
+                    });
+                
+            }
+        }
     }
 
     return(

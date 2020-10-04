@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import useRoomCardinfo from '../hooks/useRoomCardinfo'
-
+import Swal from 'sweetalert2'
 
 import { IoIosArrowDown } from 'react-icons/io'; 
 import '../assets/styles/components/DropdownMenu.scss'
@@ -9,12 +9,21 @@ import '../assets/styles/components/DropdownMenu.scss'
 const DropdownMenu = () => {
     const dropdownRef = useRef(null);
     const [isActive, setIsActive] = useState(false);
+    let name
 
     const showMenu = () => setIsActive(!isActive);
-    const API=`https://api-letsroomie.herokuapp.com/userByEmail/${sessionStorage.getItem('userEmail')}`
-    console.log(API)
+    const API=`https://api-letsroomie.herokuapp.com/user/${sessionStorage.getItem('userEmail')}`
     const userInfo=useRoomCardinfo(API)
     console.log(userInfo)
+    userInfo.body.map(item=>
+        name=item.name
+    )
+    const cerrarSesion = () =>{
+        sessionStorage.setItem('Token', "");
+        sessionStorage.setItem('userEmail',"");
+        Swal.fire("sesión cerrada")
+        
+    }
 
     useEffect(() => {
         const pageClickEvent = (e) => {
@@ -39,14 +48,14 @@ const DropdownMenu = () => {
     return(
         <div className='menu-container'>
             <button onClick={showMenu} className='menu-container__trigger'>
-                <span>User Name</span>
+            <span>{name}</span>
                 <IoIosArrowDown />
             </button>
             <nav ref={dropdownRef} className={`menu ${isActive ? 'active' : 'inactive'}`}>
                 <ul>
                     <li><Link to='/profile'>Editar perfil</Link></li>
                     <li><Link to='/addRoom'>Agregar habitación</Link></li>
-                    <li><Link to='/' className='menu__exit'>Cerrar Sesión</Link></li>
+                    <li><Link to='/login' className='menu__exit' onClick={cerrarSesion}>Cerrar Sesión</Link></li>
                 </ul>
             </nav>
         </div>
