@@ -73,16 +73,16 @@
     }
 }
 
-@media screen and (max-width: 425px) {
+@media screen and (max-width: 426px) {
     .Hero {
-        height: 32vh;
+        height: 39vh;
         
         &__gradient {
-            height: 32vh;
+            height: 39vh;
         }
 
         &__title {
-            top: 25%;
+            top:17%;
 
             & h1 {
                 font-size: .9em;

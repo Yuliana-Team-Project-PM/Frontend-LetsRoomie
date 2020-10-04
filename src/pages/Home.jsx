@@ -22,7 +22,7 @@ const Home = () => {
                 <Hero />
                 <SearchBar />
                 <section className="RoomSuggestion">
-    <h1 className="RoomSuggestion__title">Tenemos la ubicación ideal para ti</h1>
+                    <h1 className="RoomSuggestion__title">Tenemos la ubicación ideal para ti</h1>
                     <section className="RoomSuggestion__grid">
                         {lugares.body.map(item=>
                             <Suspense fallback={<h1>Cargando...</h1>}>
