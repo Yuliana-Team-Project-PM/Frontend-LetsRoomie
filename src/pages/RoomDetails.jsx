@@ -2,6 +2,8 @@ import React from 'react';
 import Footer from '../components/Footer';
 
 import '../assets/styles/components/RoomDetails.scss';
+import letsRoomie2 from '../assets/static/Logo-letsRoomie.png';
+
 
 import LogoHeader from '../components/LogoHeader';
 import Navbar from '../components/Navbar';
@@ -18,14 +20,14 @@ const RoomDetails = (props) => {
     const RoomInfo = useRoomCardinfo(API)
     console.log(RoomInfo)
 
-    return(
+    return (
         <>
-            <LogoHeader />
+            <Navbar />
             <section className='RoomDetails'>
-                <Carousel {...RoomInfo.body.images}/>
+                <Carousel {...RoomInfo.body.images} />
                 <div className='RoomDetails__grid'>
                     <RoomDescription {...RoomInfo.body} />
-                    <RoomieCard {...RoomInfo.body.user}/>
+                    <RoomieCard {...RoomInfo.body.user} />
                     <div className='RoomDetails__grid--contact'>
                         <ContactCard {...RoomInfo.body} />
                     </div>

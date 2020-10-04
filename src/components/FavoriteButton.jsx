@@ -16,13 +16,13 @@ const FavoriteButton = () => {
     }
     return (
         <>
-            <Link to={pathway} data-tip data-for='favGo'>
-                <div className='FavoriteButton' id="FavoriteButton">
+            <Link to={pathway}>
+                <div className='FavoriteButton' id="FavoriteButton" data-tip data-for='favGo'>
                     <AiFillHeart className='FavoriteButton__heart' />
                 </div>
             </Link>
 
-            <ReactTooltip id='favGo'>
+            <ReactTooltip id='favGo' place='top' effect='solid'>
                 Ve a tus favoritos
             </ReactTooltip>
         </>
