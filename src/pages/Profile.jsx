@@ -25,9 +25,9 @@ const Profile = () => {
         // Envío de datos
         let idUser=sessionStorage.getItem('idUser')
         let updateUser={
-            "email": "a@a.com",
-            "password": "abcdefgh",
-            "phone": "15151589",
+            "email": "correo14@gmail.com",
+            "password": "unacontraseña",
+            "phone": "573166245285",
             "name": "Prueba Update",
             "avatar": "string",
             "isHost": true,
@@ -44,10 +44,13 @@ const Profile = () => {
             "i10": true
         }
         console.log(updateUser)
-        console.log(idUser)
-        fetch(`https://api-letsroomie.herokuapp.com/api/users/${idUser}`, {
+        console.log(`https://api-letsroomie.herokuapp.com/users/${idUser}`)
+        fetch(`https://api-letsroomie.herokuapp.com/users/${idUser}`, {
             method: "PUT",
-            body: updateUser
+            headers: {
+                'Content-type': 'application/json; charset=UTF-8'
+               },
+            body: JSON.stringify(updateUser)
           });
           
     }

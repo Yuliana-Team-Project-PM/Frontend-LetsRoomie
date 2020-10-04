@@ -6,7 +6,37 @@ import Footer from '../components/Footer';
 
 const AddRoom = () => {
     const saveRoom=()=>{
-        alert("ey")
+    let newRoom={
+            "namePlace": "Gran Apartamento",
+            "location": "Zona norte",
+            "city": "Bogotá",
+            "images": [
+              "string"
+            ],
+            "price": 5000,
+            "available": true,
+            "furniture": [
+              "string"
+            ],
+            "wifi": true,
+            "bath": true,
+            "parking": true,
+            "tv": true,
+            "cleaning": true,
+            "closet": true,
+            "size": 150,
+            "description": "Hermoso apartamento de 2 habitaciones, con vista al mar",
+            "user": "string"
+          }
+          let Token=sessionStorage.getItem('Token')
+          fetch(`https://api-letsroomie.herokuapp.com/place`, {
+            method: "POST",
+            headers: {
+                'Content-Type': 'application/json',
+                'access-token':Token
+               },
+            body: JSON.stringify(newRoom)
+          });
     }
 
     return(
@@ -29,7 +59,7 @@ const AddRoom = () => {
                     </div>
                     <label htmlFor="">Precio</label>
                     <input type="text"/>
-                    <button className='AddRoom__form--button' onClick={saveRoom}>Guardar Cambios</button>
+                    <button type="button" className='AddRoom__form--button' onClick={saveRoom}>Guardar Cambios</button>
                 </form>
             </div>
         </>
