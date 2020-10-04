@@ -20,24 +20,24 @@ const Profile = () => {
         fetch("https://api-letsroomie.herokuapp.com/api/profile/multipleUpload", {
             method: "POST",
             body: data
-          });
+        });
 
         // Envío de datos
-        let idUser=sessionStorage.getItem('idUser')
-        let nombre=document.getElementById("nombre").value
-        let email=document.getElementById("email").value
-        let contraseña=document.getElementById("contraseña").value
-        let telefono=document.getElementById("telefono").value
-        let comentarios=document.getElementById("comentarios").value
+        let idUser = sessionStorage.getItem('idUser')
+        let nombre = document.getElementById("nombre").value
+        let email = document.getElementById("email").value
+        let contraseña = document.getElementById("contraseña").value
+        let telefono = document.getElementById("telefono").value
+        let comentarios = document.getElementById("comentarios").value
 
-        let updateUser={
-            "email": {email},
-            "password": {contraseña},
-            "phone": {telefono},
-            "name": {nombre},
+        let updateUser = {
+            "email": { email },
+            "password": { contraseña },
+            "phone": { telefono },
+            "name": { nombre },
             "avatar": "string",
             "isHost": true,
-            "about": {comentarios},
+            "about": { comentarios },
             "i1": true,
             "i2": true,
             "i3": true,
@@ -55,10 +55,10 @@ const Profile = () => {
             method: "PUT",
             headers: {
                 'Content-type': 'application/json; charset=UTF-8'
-               },
+            },
             body: JSON.stringify(updateUser)
-          });
-          
+        });
+
     }
 
 
@@ -71,39 +71,40 @@ const Profile = () => {
                     <h2>Edita tu perfil</h2>
                 </div>
                 <div className="PerfilEdit__photo">
-                    <p>Foto de perfil:</p>
+                    {/* <p>Foto de perfil:</p> */}
                     <img src="https://resizer.codigounico.com/resizer/resizer.php?imagen=https://www.codigounico.com/wp-content/uploads/sites/2/2020/01/las-mujeres-mas-sexys-de-instagram-en-2020-2.jpg&nuevoancho=750&crop=0" alt="foto de perfil" />
                     <input type="file" name="file" onChange={onChangeHandler} />
                 </div>
-                <label htmlFor="">Nombre:</label>
-                <input type="text" name="" id="nombre" />
-                <label htmlFor="">Email:</label>
-                <input type="text" id="email"/>
-                <label htmlFor="">Contraseña</label>
-                <input type="password" id="contraseña"/>
-                <label htmlFor="">Teléfono</label>
-                <input type="password" id="telefono"/>
-                <div className="PerfilEdit__PersonalDesc">
-                    <label htmlFor="">
-                        Descripción personal:
-                        </label>
-                    <textarea name="comentarios" rows="10" cols="30" id="comentarios"></textarea>
-                </div>
-                <label htmlFor="">Elige tus intereses:</label>
-                <div className="PerfilEdit__interest">
-                    <Interest topic='Cine' />
-                    <Interest topic='Literatura' />
-                    <Interest topic='Deporte' />
-                    <Interest topic='Fiestas' />
-                    <Interest topic='Estudio' />
-                    <Interest topic='Música' />
-                    <Interest topic='Amigos' />
-                    <Interest topic='Fiestas' />
-                    <Interest topic='Arte' />
-                    <Interest topic='Trabajo' />
-                </div>
+                <div className="PerfilEdit__text">
+                    <label htmlFor="">Nombre:</label>
+                    <input type="text" name="" id="" />
+                    <label htmlFor="">Email:</label>
+                    <input type="text" />
+                    <label htmlFor="">Contraseña:</label>
+                    <input type="password" />
+                    <div className="PerfilEdit__PersonalDesc">
+                        <label htmlFor="">
+                            Descripción personal:
+                            </label>
+                        <textarea name="comentarios" rows="10" cols="30"></textarea>
+                    </div>
+                    <label htmlFor="">Elige tus intereses:</label>
+                    <div className="PerfilEdit__interest">
+                        <Interest topic='Cine' />
+                        <Interest topic='Literatura' />
+                        <Interest topic='Deporte' />
+                        <Interest topic='Fiestas' />
+                        <Interest topic='Estudio' />
+                        <Interest topic='Música' />
+                        <Interest topic='Amigos' />
+                        <Interest topic='Fiestas' />
+                        <Interest topic='Arte' />
+                        <Interest topic='Trabajo' />
+                    </div>
 
-                <button className='PerfilEdit__button' onClick={onClickHandler}>Guardar</button>
+                    <button className='PerfilEdit__button' onClick={onClickHandler}>Guardar</button>
+
+                </div>
 
             </section>
             <FavoriteButton />
