@@ -3,7 +3,8 @@
 .FavoriteItem {
     background: $gray-color;
     width: 100%;
-    height: 200px;
+    // height: 200px;
+    height: auto;
     border-radius: 15px;
     margin-bottom: 1em;
     display: grid;
@@ -35,7 +36,8 @@
     &__img {
         grid-column: 3;
         width: 100%;
-        height: 200px;
+        // height: 200px;
+        height: auto;
         
         img {
             width: 100%;
@@ -47,13 +49,13 @@
     }
 }
 
-@media screen and (max-width: 425px) {
+@media screen and (max-width: 426px) {
     .FavoriteItem {
         height: auto;
 
         &__icon {
             &--heart {
-                font-size: 1em;
+                font-size: .8em;
             }
         }
 
@@ -69,7 +71,7 @@
     }
 }
 
-@media screen and (max-width: 375px) {
+@media screen and (max-width: 376px) {
     .FavoriteItem {
         &__icon {
             &--heart {
@@ -89,7 +91,7 @@
     }
 }
 
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 321px) {
     .FavoriteItem {
         &__icon {
             &--heart {

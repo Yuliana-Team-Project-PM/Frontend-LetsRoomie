@@ -3,6 +3,8 @@
 .footer{
     color: white;
     background-color:$dark-color;
+    height: 235px;
+
 
     &__cta {
         height: 110px;
@@ -23,26 +25,25 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-        // margin: 0px 100px;
+        padding: 0 3em;
     }
 }
 
 @media screen and (max-width: 426px) {
     .footer {
-        // $container(400px);
+        height: 335px;
+        
 
         &__icons {
             display: block;
 
             &--social {
-                // display: flex;
                 text-align: center;
                 margin: 3em 0 ;
             }
 
             &--copy {
                 text-align: center;
-                // margin: .6em 0;
                 padding-bottom: 1em;
 
                 p {
@@ -52,6 +53,14 @@
         }
     }
 }
+
+@media screen and (max-width: 376px) {
+    .footer {
+        height: 355px;
+
+    }
+}
+
 
 @media screen and (max-width: 321px) {
     .footer {

@@ -6,7 +6,7 @@
     color: $primary-color;
 
     &__form {
-        margin:auto;
+        @include container(500px);
 
         h2 {
             margin: 0 0 70px 0;
@@ -22,7 +22,7 @@
         }
 
         & input {
-            width: 500px;
+            width: 100%;
             margin: 25px 0 25px 0;
             border:none;
             border-bottom: 1px solid $primary-color;
@@ -62,9 +62,13 @@ input:focus, input.form-control:focus {
     }
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 769px) {
     .CreateGuestAccount {
         grid-template-columns: 70% 30%;
+
+        &__form {
+            @include container(400px);
+        }
     }
 
     .VerticalBanner {
@@ -74,17 +78,38 @@ input:focus, input.form-control:focus {
     }
 }
 
-@media screen and (max-width: 425px) {
+@media screen and (max-width: 426px) {
     .CreateGuestAccount {
         display: block;
-        // @include container(400px);
+
+        &__form {
+            @include container(350px);
+        }
     }
 
     .VerticalBanner {
         height: 35vh;
-        width: 100vw;
+        width: 100%;
         img {
             width: 190px;
+        }
+    }
+}
+
+@media screen and (max-width: 376px) {
+    .CreateGuestAccount {
+
+        &__form {
+            @include container(310px);
+        }
+    }
+}
+
+@media screen and (max-width: 321px) {
+    .CreateGuestAccount {
+
+        &__form {
+            @include container(280px);
         }
     }
 }
