@@ -11,11 +11,11 @@
   cursor: pointer;
 }
 
-.active {
+.showInterest {
   color: $gray-color;
   background-color: $primary-color;
 }
-.inactive {
+.notShowInterest {
   color: $primary-color;
   background-color: transparent;
 }
