@@ -10,7 +10,7 @@
     &__form {
         label {
             color: $dark-color;
-            display: block;
+            // display: block;
             font-size: 1.2em;
         }
     
@@ -42,6 +42,26 @@
             margin-bottom: 4em;
         }
 
+
+    }
+}
+
+.Services {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    margin-bottom: 3em;
+
+    &__item {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        margin-right: 2em;
+
+        input {
+            margin: 1em;
+        }
     }
 }
 

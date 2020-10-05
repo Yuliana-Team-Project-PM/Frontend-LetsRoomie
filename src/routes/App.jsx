@@ -19,7 +19,7 @@ function App() {
     return (
         <BrowserRouter>
             <Switch>
-                <Route exact path="/" component={Home} />
+                <Route exact path="/" component={AddRoom} />
                 <Route exact path="/login" component={Login} />
                 <Route exact path="/select-acount" component={CreateAcountSelect} />
                 <Route exact path="/acount-guest" component={CreateGuestAcount} />
