@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import { Link,withRouter } from 'react-router-dom';
 import '../assets/styles/components/AddRoom.scss';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
+import Swal from 'sweetalert2'
 
-const AddRoom = () => {
+const AddRoom = ({history}) => {
   const [selectedFiles, setSelectedFile] = useState()
   const multipleFileChangedHandler = (event) => {
     setSelectedFile(event.target.files)
@@ -15,7 +17,7 @@ const AddRoom = () => {
     const data = new FormData();
   // If file selected
     if ( selectedFiles ) {
-      alert("ey")
+
      for ( let i = 0; i < selectedFiles.length; i++ ) {
       data.append( 'galleryImage', selectedFiles[ i ], selectedFiles[ i ].name );
      }
@@ -27,9 +29,7 @@ const AddRoom = () => {
       }
      })
       .then( ( response ) => {
-       console.log( 'res', response );
-  if ( 200=== response.status ) {
-        console.log(response)
+  if ( 201=== response.status ) {
         // If file size is larger than expected.
         if( response.data.error ) {
          if ( 'LIMIT_FILE_SIZE' === response.data.error.code ) {
@@ -44,6 +44,65 @@ const AddRoom = () => {
          // Success
          let fileName = response.data;
          console.log( 'fileName', fileName );
+
+         let roomImg=fileName.body 
+         let idUser=sessionStorage.getItem('idUser')
+         let titulo=document.getElementById("titulo").value
+         let ciudad=document.getElementById("ciudad").value
+         let dirección=document.getElementById("dirección").value
+         let descripción=document.getElementById("descripción").value
+         let furniture=document.getElementById("furniture").value
+         let metros=document.getElementById("metros").value
+         let precio=document.getElementById("precio").value
+       
+     
+     
+         let wifi=document.getElementById("wifi").checked
+         let bath=document.getElementById("bath").checked
+         let parking=document.getElementById("parking").checked
+         let tv=document.getElementById("tv").checked
+         let cleaning=document.getElementById("cleaning").checked
+         let closet=document.getElementById("closet").checked
+     
+     
+         let newRoom = {
+           "namePlace": titulo,
+           "location": dirección,
+           "city": ciudad,
+           "images":roomImg,
+           "price": precio,
+           "available": true,
+           "furniture": [
+             furniture
+           ],
+           "wifi": wifi,
+           "bath": bath,
+           "parking": parking,
+           "tv": tv,
+           "cleaning": cleaning,
+           "closet": closet,
+           "size": metros,
+           "description":descripción,
+           "user": idUser
+         }
+         console.log("IMG HAB")
+         console.log(newRoom)
+         let Token = sessionStorage.getItem('Token')
+         fetch(`https://api-letsroomie.herokuapp.com/place`, {
+           method: "POST",
+           headers: {
+             'Content-Type': 'application/json',
+             'access-token': Token
+           },
+           body: JSON.stringify(newRoom)
+           })
+           .then(res => res.json())
+           .catch(error => console.error('Error:', error))
+           .then(response => {
+                   console.log(response)
+           });
+           Swal.fire("Habitación creada")
+           history.push("/")
          //this.ocShowAlert( 'File Uploaded', '#3089cf' );
   }
        }
@@ -52,69 +111,14 @@ const AddRoom = () => {
       //this.ocShowAlert( error, 'red' );
      });
     } else {
-      alert("paila")
      // if file not selected throw error
      //this.ocShowAlert( 'Please upload file', 'red' );
     }
   };
   const saveRoom = () => {
-    let idUser=sessionStorage.getItem('idUser')
-    let titulo=document.getElementById("titulo").value
-    let ciudad=document.getElementById("ciudad").value
-    let dirección=document.getElementById("dirección").value
-    let descripción=document.getElementById("descripción").value
-    let furniture=document.getElementById("furniture").value
-    let metros=document.getElementById("metros").value
-    let precio=document.getElementById("precio").value
-  
-
-
-    let wifi=document.getElementById("wifi").checked
-    let bath=document.getElementById("bath").checked
-    let parking=document.getElementById("parking").checked
-    let tv=document.getElementById("tv").checked
-    let cleaning=document.getElementById("cleaning").checked
-    let closet=document.getElementById("closet").checked
 
     multipleFileUploadHandler()
 
-    let newRoom = {
-      "namePlace": titulo,
-      "location": dirección,
-      "city": ciudad,
-      "images": [
-        "string"
-      ],
-      "price": precio,
-      "available": true,
-      "furniture": [
-        furniture
-      ],
-      "wifi": wifi,
-      "bath": bath,
-      "parking": parking,
-      "tv": tv,
-      "cleaning": cleaning,
-      "closet": closet,
-      "size": metros,
-      "description":descripción,
-      "user": idUser
-    }
-    console.log(newRoom)
-    let Token = sessionStorage.getItem('Token')
-    fetch(`https://api-letsroomie.herokuapp.com/place`, {
-      method: "POST",
-      headers: {
-        'Content-Type': 'application/json',
-        'access-token': Token
-      },
-      body: JSON.stringify(newRoom)
-      })
-      .then(res => res.json())
-      .catch(error => console.error('Error:', error))
-      .then(response => {
-              console.log(response)
-      });
   }
 
   return (
@@ -178,4 +182,4 @@ const AddRoom = () => {
   );
 };
 
-export default AddRoom;
+export default withRouter(AddRoom);
