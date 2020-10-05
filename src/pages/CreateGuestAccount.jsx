@@ -1,5 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { withRouter } from 'react-router-dom';
+import axios from 'axios';
+
 import LogoHeader from '../components/LogoHeader';
 import VerticalBanner from '../components/VerticalBanner';
 import '../assets/styles/components/CreateGuestAccount.scss';
@@ -9,52 +11,118 @@ import Interest from '../components/Interest';
 
 
 const CreateGuestAccount = ({ history }) => {
-    const guestCreation = () => {
-        let name = document.getElementById("name").value
-        let email = document.getElementById("email").value
-        let telephone = document.getElementById("telephone").value
-        let password = document.getElementById("password").value
+    const [selectedFile, setSelectedFile] = useState()
+    const singleFileChangedHandler = ( event ) => {
+        //alert("primer evento")
+        setSelectedFile(event.target.files[0])
+       };
 
-        let descripción = document.getElementById("descripción").value
-
-        let guestData = {
-            "email": email,
-            "password": password,
-            "phone": telephone,
-            "name": name,
-            "avatar": "https://letsroomie.s3.us-east-2.amazonaws.com/defualtImage-1601429025283.png",
-            "isHost": false,
-            "about": descripción,
-            "i1": true,
-            "i2": true,
-            "i3": true,
-            "i4": true,
-            "i5": true,
-            "i6": true,
-            "i7": true,
-            "i8": true,
-            "i9": true,
-            "i10": true
-        }
-        console.log(guestData)
-        fetch('https://api-letsroomie.herokuapp.com/createUser', {
-            method: 'POST',
-            body: JSON.stringify(guestData),
-            headers: {
-                'Content-Type': 'application/json'
+    const singleFileUploadHandler = (  ) => {
+        const data = new FormData();
+      // If file selected
+        if ( selectedFile ) {
+      data.append( 'file', selectedFile, selectedFile.name );
+      axios.post( 'https://api-letsroomie.herokuapp.com/api/profile/avatarUpload', data, {
+          headers: {
+           'accept': 'application/json',
+           'Accept-Language': 'en-US,en;q=0.8',
+           'Content-Type': `multipart/form-data; boundary=${data._boundary}`,
+          }
+         })
+          .then( ( response ) => {
+            //alert("respuesta")
+            //console.log(response)
+      if ( 201 === response.status ) {
+            // If file size is larger than expected.
+            if( response.data.error ) {
+             if ( 'LIMIT_FILE_SIZE' === response.data.error.code ) {
+              //ocShowAlert( 'Max size: 2MB', 'red' );
+             } else {
+              console.log( response.data );
+      // If not the given file type
+              //ocShowAlert( response.data.error, 'red' );
+             }
+            } else {
+             // Success
+             let fileName = response.data;
+             console.log( 'fileName', fileName.body.location );
+             
+            let avatar=fileName.body.location
+             let name = document.getElementById("name").value
+             let email = document.getElementById("email").value
+             let telephone = document.getElementById("telephone").value
+             let password = document.getElementById("password").value
+             let descripción = document.getElementById("descripción").value
+             
+     
+             let cine=document.getElementById("cine").checked
+             let literature=document.getElementById("literature").checked
+             let sports=document.getElementById("sports").checked
+             let party=document.getElementById("party").checked
+             let study=document.getElementById("study").checked
+             let music=document.getElementById("music").checked
+             let friends=document.getElementById("friends").checked
+             let travels=document.getElementById("travels").checked
+             let art=document.getElementById("art").checked
+             let work=document.getElementById("work").checked
+     
+             alert(avatar)
+             let guestData = {
+                 "email": email,
+                 "password": password,
+                 "phone": telephone,
+                 "name": name,
+                 "avatar": avatar,
+                 "isHost": false,
+                 "about": descripción,
+                 "movietheater": cine,
+                 "literature": literature,
+                 "sports": sports,
+                 "parties": party,
+                 "study": study,
+                 "music": music,
+                 "friends": friends,
+                 "travel": travels,
+                 "art": art,
+                 "work": work
+             }
+             //console.log(guestData)
+             
+             fetch('https://api-letsroomie.herokuapp.com/createUser', {
+                 method: 'POST',
+                 body: JSON.stringify(guestData),
+                 headers: {
+                     'Content-Type': 'application/json'
+                 }
+             })
+                 .then(res => res.json())
+                 .then(response => {
+                     //console.log(response)
+                     if (response.error === "") {
+                         Swal.fire("Registro exitoso")
+                         history.push("/login")
+                     } else {
+                         Swal.fire("Registro no exitoso")
+                     }
+                 });
+            // ocShowAlert( 'File Uploaded', '#3089cf' );
             }
-        })
-            .then(res => res.json())
-            .then(response => {
-                console.log(response)
-                if (response.error === "") {
-                    Swal.fire("Registro exitoso")
-                    history.push("/login")
-                } else {
-                    Swal.fire("Registro no exitoso")
-                }
-            });
+           }
+          }).catch( ( error ) => {
+          // If another error
+          //ocShowAlert( error, 'red' );
+         });
+        } else {
+         // if file not selected throw error
+         //ocShowAlert( 'Please upload file', 'red' );
+        }
+      };
+
+    const guestCreation =() => {
+        singleFileUploadHandler()
+
     }
+    
     return (
         <>
             <LogoHeader />
@@ -117,7 +185,7 @@ const CreateGuestAccount = ({ history }) => {
                             </label>
                         </div>
                         <label>Foto de perfil</label>
-                        <input type="file" name="file" />
+                        <input type="file" onChange={singleFileChangedHandler}/>
 
                         <button type="button" className='Login__card--button' onClick={guestCreation}>Crear cuenta</button>
                     </form>

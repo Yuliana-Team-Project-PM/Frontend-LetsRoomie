@@ -10,13 +10,16 @@ const DropdownMenu = () => {
     const dropdownRef = useRef(null);
     const [isActive, setIsActive] = useState(false);
     let name
+    let ishost
 
     const showMenu = () => setIsActive(!isActive);
     const API=`https://api-letsroomie.herokuapp.com/user/${sessionStorage.getItem('userEmail')}`
     const userInfo=useRoomCardinfo(API)
     console.log(userInfo)
-    userInfo.body.map(item=>
+    userInfo.body.map(item=>{
         name=item.name
+        ishost=item.ishost
+    }
     )
     const cerrarSesion = () =>{
         sessionStorage.setItem('Token', "");
@@ -54,7 +57,8 @@ const DropdownMenu = () => {
             <nav ref={dropdownRef} className={`menu ${isActive ? 'active' : 'inactive'}`}>
                 <ul>
                     <li><Link to='/profile'>Editar perfil</Link></li>
-                    <li><Link to='/addRoom'>Agregar habitación</Link></li>
+                    {console.log(ishost)}
+                    {ishost ? <li><Link to='/addRoom'>Agregar habitación</Link></li> : <li><Link to='/addRoom'>Agregar habitación</Link></li> }
                     <li><Link to='/login' className='menu__exit' onClick={cerrarSesion}>Cerrar Sesión</Link></li>
                 </ul>
             </nav>

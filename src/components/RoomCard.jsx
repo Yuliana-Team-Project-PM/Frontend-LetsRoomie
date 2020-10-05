@@ -35,7 +35,7 @@ const RoomCard = ({ images, description, namePlace, location, to, price, user, _
             if (favorite) {
                 //Retiro de favoritos
                 let favId = sessionStorage.getItem('favId');
-                console.log(favId)
+                //console.log(favId)
                 fetch(`https://api-letsroomie.herokuapp.com/fav/${favId}`,
                     {
                         method: 'DELETE',
@@ -46,7 +46,8 @@ const RoomCard = ({ images, description, namePlace, location, to, price, user, _
                     .then(res => res.json())
                     .catch(error => console.error('Error:', error))
                     .then(response => {
-                        console.log(response)
+                        //console.log(response)
+                        Swal.fire("Retirado de la lista de favoritos")
                     });
 
 
@@ -57,8 +58,8 @@ const RoomCard = ({ images, description, namePlace, location, to, price, user, _
                     "user": idUser
                 }
 
-                console.log(Token)
-                console.log(datosFav)
+                //console.log(Token)
+                //console.log(datosFav)
                 fetch('https://api-letsroomie.herokuapp.com/fav',
                     {
                         method: 'POST',
@@ -71,9 +72,13 @@ const RoomCard = ({ images, description, namePlace, location, to, price, user, _
                     .then(res => res.json())
                     .catch(error => console.error('Error:', error))
                     .then(response => {
-                        console.log(response)
-                        sessionStorage.setItem('favId', response.body._id)
-                        Swal.fire("Agregado a favoritos")
+                        //console.log(response)
+                        if (response.error === "Place and user already exist") {
+                            Swal.fire("Ya la tienes en tu lista de favoritos")
+                        } else {
+                            sessionStorage.setItem('favId', response.body._id)
+                            Swal.fire("Agregado a favoritos")
+                        }
                     });
 
             }

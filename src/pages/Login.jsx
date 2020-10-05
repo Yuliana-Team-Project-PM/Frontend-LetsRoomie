@@ -16,18 +16,19 @@ const Login = ({history}) => {
             "email": emailUser,
             "password": psswUser
             }
-        console.log(datosLogin)
+        //console.log(datosLogin)
         fetch('https://api-letsroomie.herokuapp.com/signin',{
             method: 'POST',
             body: JSON.stringify(datosLogin),
             headers:{
                 'Content-Type': 'application/json'
               }
-            }).then(res => res.json())
+            })
+            .then(res => res.json())
             .catch(error => console.error('Error:', error))
             .then(response => {
                 if(response.error===""){
-                    console.log(response)
+                    //console.log(response)
                     sessionStorage.setItem('Token', response.body.token);
                     sessionStorage.setItem('userEmail',emailUser);
                     Swal.fire("Inicio de sesión exitoso")

@@ -4,6 +4,7 @@
   "description": "Final Project Platzi Master",
   "main": "webpack.config.js",
   "dependencies": {
+    "axios": "^0.20.0",
     "node-fetch": "^2.6.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
