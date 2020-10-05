@@ -26,7 +26,7 @@ const SearchResults = () => {
                 <h2 className="RoomSuggestion__title">{lugares.body.length} Resultados en la ciudad de {city}</h2>
                 <section className="RoomSuggestion__grid">
                 {lugares.body.map(item=>
-                        <RoomCard {...item}/>
+                        <RoomCard to={`/room-details/${item._id}`} {...item}/>
                     )
                     }
                 </section>
