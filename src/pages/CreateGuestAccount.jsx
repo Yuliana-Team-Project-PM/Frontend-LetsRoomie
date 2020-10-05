@@ -13,6 +13,7 @@ import Interest from '../components/Interest';
 const CreateGuestAccount = ({ history }) => {
     const [selectedFile, setSelectedFile] = useState()
     const singleFileChangedHandler = ( event ) => {
+        //alert("primer evento")
         setSelectedFile(event.target.files[0])
        };
 
@@ -20,7 +21,7 @@ const CreateGuestAccount = ({ history }) => {
         const data = new FormData();
       // If file selected
         if ( selectedFile ) {
-      data.append( 'profileImage', selectedFile, selectedFile.name );
+      data.append( 'file', selectedFile, selectedFile.name );
       axios.post( 'https://api-letsroomie.herokuapp.com/api/profile/avatarUpload', data, {
           headers: {
            'accept': 'application/json',
@@ -29,31 +30,32 @@ const CreateGuestAccount = ({ history }) => {
           }
          })
           .then( ( response ) => {
-            alert("respuesta")
-      if ( 200 === response.status ) {
+            //alert("respuesta")
+              console.log(response)
+      if ( 201 === response.status ) {
             // If file size is larger than expected.
             if( response.data.error ) {
              if ( 'LIMIT_FILE_SIZE' === response.data.error.code ) {
-              ocShowAlert( 'Max size: 2MB', 'red' );
+              //ocShowAlert( 'Max size: 2MB', 'red' );
              } else {
               console.log( response.data );
       // If not the given file type
-              ocShowAlert( response.data.error, 'red' );
+              //ocShowAlert( response.data.error, 'red' );
              }
             } else {
              // Success
              let fileName = response.data;
              console.log( 'fileName', fileName );
-             ocShowAlert( 'File Uploaded', '#3089cf' );
+            // ocShowAlert( 'File Uploaded', '#3089cf' );
             }
            }
           }).catch( ( error ) => {
           // If another error
-          ocShowAlert( error, 'red' );
+          //ocShowAlert( error, 'red' );
          });
         } else {
          // if file not selected throw error
-         ocShowAlert( 'Please upload file', 'red' );
+         //ocShowAlert( 'Please upload file', 'red' );
         }
       };
 
@@ -64,6 +66,18 @@ const CreateGuestAccount = ({ history }) => {
         let password = document.getElementById("password").value
         let descripción = document.getElementById("descripción").value
         
+
+        let cine=document.getElementById("cine").checked
+        let literature=document.getElementById("literature").checked
+        let sports=document.getElementById("sports").checked
+        let party=document.getElementById("party").checked
+        let study=document.getElementById("study").checked
+        let music=document.getElementById("music").checked
+        let friends=document.getElementById("friends").checked
+        let travels=document.getElementById("travels").checked
+        let art=document.getElementById("art").checked
+        let work=document.getElementById("work").checked
+
         singleFileUploadHandler()
 
         let guestData = {
@@ -74,18 +88,18 @@ const CreateGuestAccount = ({ history }) => {
             "avatar": "https://letsroomie.s3.us-east-2.amazonaws.com/defualtImage-1601429025283.png",
             "isHost": false,
             "about": descripción,
-            "i1": true,
-            "i2": true,
-            "i3": true,
-            "i4": true,
-            "i5": true,
-            "i6": true,
-            "i7": true,
-            "i8": true,
-            "i9": true,
-            "i10": true
+            "movietheater": cine,
+            "literature": literature,
+            "sports": sports,
+            "parties": party,
+            "study": study,
+            "music": music,
+            "friends": friends,
+            "travel": travels,
+            "art": art,
+            "work": work
         }
-        console.log(guestData)
+        //console.log(guestData)
         
         fetch('https://api-letsroomie.herokuapp.com/createUser', {
             method: 'POST',
@@ -96,7 +110,7 @@ const CreateGuestAccount = ({ history }) => {
         })
             .then(res => res.json())
             .then(response => {
-                console.log(response)
+                //console.log(response)
                 if (response.error === "") {
                     Swal.fire("Registro exitoso")
                     history.push("/login")
@@ -125,18 +139,6 @@ const CreateGuestAccount = ({ history }) => {
                         <label htmlFor="">Descripción</label>
                         <input id="descripción" type="text" />
                         <div className="CreateGuestAccount__fields--interest">
-<<<<<<< HEAD
-                            <Interest topic='Cine'/>
-                            <Interest topic='Literatura' />
-                            <Interest topic='Deporte' />
-                            <Interest topic='Fiestas' />
-                            <Interest topic='Estudio' />
-                            <Interest topic='Música' />
-                            <Interest topic='Amigos' />
-                            <Interest topic='Fiestas' />
-                            <Interest topic='Arte' />
-                            <Interest topic='Trabajo' />
-=======
                             <label className="CreateGuestAccount__fields--interest-label">
                                 <input type="checkbox" id="cine" value="" />
                                 Cine
@@ -177,7 +179,6 @@ const CreateGuestAccount = ({ history }) => {
                                 <input type="checkbox" id="work" value="" />
                                 Trabajo
                             </label>
->>>>>>> 53989f9c8900dfdc46520344e7ac1b726d6550fe
                         </div>
                         <label>Foto de perfil</label>
                         <input type="file" onChange={singleFileChangedHandler}/>
