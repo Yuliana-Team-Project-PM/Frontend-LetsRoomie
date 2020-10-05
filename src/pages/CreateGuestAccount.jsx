@@ -66,7 +66,7 @@ const CreateGuestAccount = ({ history }) => {
              let art=document.getElementById("art").checked
              let work=document.getElementById("work").checked
      
-             alert(avatar)
+             //alert(avatar)
              let guestData = {
                  "email": email,
                  "password": password,

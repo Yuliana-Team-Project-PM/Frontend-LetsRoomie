@@ -9,7 +9,7 @@ import { MdAttachMoney } from 'react-icons/md';
 
 import '../assets/styles/components/RoomCard.scss';
 
-const RoomCard = ({ images, description, namePlace, location, to, price, user, _id }) => {
+const RoomCard = ({ images, description, namePlace, location, to, price, user, _id,city}) => {
     const [favorite, setFavorite] = useState(false);    
     let email = sessionStorage.getItem('userEmail')
     const API = `https://api-letsroomie.herokuapp.com/user/${email}`
@@ -109,7 +109,7 @@ const RoomCard = ({ images, description, namePlace, location, to, price, user, _
             </div>
 
             <div className='RoomCard__description'>
-                <p className='RoomCard__description--location'><MdLocationOn size={23} />{location} </p>
+                <p className='RoomCard__description--location'><MdLocationOn size={23} />{city} / {location} </p>
                 <p className='RoomCard__description--price'><MdAttachMoney size={23} />{price} / mensual</p>
             </div>
 

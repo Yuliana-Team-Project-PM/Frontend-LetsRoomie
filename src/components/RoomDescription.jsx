@@ -11,13 +11,13 @@ Observaciones
     4. El back debe entregar la descripción
     5. El back debe entregar los intereses (El card debe mostrarlos de manera dinámica)
 */
-const RoomDescription=({namePlace,location,description,bath,cleaning,closet,parking,tv,wifi})=>{
+const RoomDescription=({namePlace,location,description,bath,cleaning,closet,parking,tv,wifi,city})=>{
         return(
             <div className="RoomDescription">
                 <h2>{namePlace}</h2>
                 <section className="RoomDescription-header">
                     <MdLocationOn className="RoomDescription-header--icon" />
-                    <p>{location}</p>
+                    <p>{city} / {location}</p>
                 </section>
                 <section className="RoomDescription-descriptionDetail">
                     <p>

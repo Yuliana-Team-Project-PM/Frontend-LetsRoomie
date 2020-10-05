@@ -29,7 +29,7 @@ const CreateHostAccount = ({ history }) => {
           }
          })
           .then( ( response ) => {
-            alert("respuesta")
+            //alert("respuesta")
               console.log(response)
       if ( 201 === response.status ) {
             // If file size is larger than expected.
