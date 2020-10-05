@@ -9,13 +9,18 @@ import { MdAttachMoney } from 'react-icons/md';
 
 import '../assets/styles/components/RoomCard.scss';
 
+<<<<<<< HEAD
 const RoomCard = ({ images, description, namePlace, location, to, price, user, _id,city}) => {
     const [favorite, setFavorite] = useState(false);    
+=======
+const RoomCard = ({ images, description, namePlace, location, to, price, user, _id }) => {
+    const [favorite, setFavorite] = useState(false);
+>>>>>>> de40d3ce23d84fc8fe235f84ac47077846bb5203
     let email = sessionStorage.getItem('userEmail')
     const API = `https://api-letsroomie.herokuapp.com/user/${email}`
     const userData = useRoomCardinfo(API)
     let idUser
-    //console.log("data: " + userData.body)
+    // console.log("data: " + userData.body)
     userData.body.map(item => {
         idUser = item._id
         sessionStorage.setItem('idUser', idUser)
@@ -73,9 +78,9 @@ const RoomCard = ({ images, description, namePlace, location, to, price, user, _
                     .catch(error => console.error('Error:', error))
                     .then(response => {
                         //console.log(response)
-                        if(response.error==="Place and user already exist"){
+                        if (response.error === "Place and user already exist") {
                             Swal.fire("Ya la tienes en tu lista de favoritos")
-                        }else{
+                        } else {
                             sessionStorage.setItem('favId', response.body._id)
                             Swal.fire("Agregado a favoritos")
                         }

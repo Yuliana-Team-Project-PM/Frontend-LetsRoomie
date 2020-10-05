@@ -18,8 +18,8 @@ const RoomDetails = (props) => {
     let roomId = match.params.roomIndex
     const API = `https://api-letsroomie.herokuapp.com/place/${roomId}`
     const RoomInfo = useRoomCardinfo(API)
-    console.log("ROOM")
-    console.log(RoomInfo.body.user)
+    // console.log("ROOM")
+    // console.log(RoomInfo.body.user)
 
     return (
         <>
@@ -30,7 +30,7 @@ const RoomDetails = (props) => {
                     <RoomDescription {...RoomInfo.body} />
                     <RoomieCard {...RoomInfo.body.user} />
                     <div className='RoomDetails__grid--contact'>
-                        <ContactCard price={RoomInfo.body.price} {...RoomInfo.body.user}/>
+                        <ContactCard price={RoomInfo.body.price} {...RoomInfo.body.user} />
                     </div>
                 </div>
             </section>
