@@ -31,7 +31,7 @@ const CreateGuestAccount = ({ history }) => {
          })
           .then( ( response ) => {
             //alert("respuesta")
-              console.log(response)
+            //console.log(response)
       if ( 201 === response.status ) {
             // If file size is larger than expected.
             if( response.data.error ) {
@@ -45,7 +45,66 @@ const CreateGuestAccount = ({ history }) => {
             } else {
              // Success
              let fileName = response.data;
-             console.log( 'fileName', fileName );
+             console.log( 'fileName', fileName.body.location );
+             
+            let avatar=fileName.body.location
+             let name = document.getElementById("name").value
+             let email = document.getElementById("email").value
+             let telephone = document.getElementById("telephone").value
+             let password = document.getElementById("password").value
+             let descripción = document.getElementById("descripción").value
+             
+     
+             let cine=document.getElementById("cine").checked
+             let literature=document.getElementById("literature").checked
+             let sports=document.getElementById("sports").checked
+             let party=document.getElementById("party").checked
+             let study=document.getElementById("study").checked
+             let music=document.getElementById("music").checked
+             let friends=document.getElementById("friends").checked
+             let travels=document.getElementById("travels").checked
+             let art=document.getElementById("art").checked
+             let work=document.getElementById("work").checked
+     
+             alert(avatar)
+             let guestData = {
+                 "email": email,
+                 "password": password,
+                 "phone": telephone,
+                 "name": name,
+                 "avatar": avatar,
+                 "isHost": false,
+                 "about": descripción,
+                 "movietheater": cine,
+                 "literature": literature,
+                 "sports": sports,
+                 "parties": party,
+                 "study": study,
+                 "music": music,
+                 "friends": friends,
+                 "travel": travels,
+                 "art": art,
+                 "work": work
+             }
+             //console.log(guestData)
+             
+             fetch('https://api-letsroomie.herokuapp.com/createUser', {
+                 method: 'POST',
+                 body: JSON.stringify(guestData),
+                 headers: {
+                     'Content-Type': 'application/json'
+                 }
+             })
+                 .then(res => res.json())
+                 .then(response => {
+                     //console.log(response)
+                     if (response.error === "") {
+                         Swal.fire("Registro exitoso")
+                         history.push("/login")
+                     } else {
+                         Swal.fire("Registro no exitoso")
+                     }
+                 });
             // ocShowAlert( 'File Uploaded', '#3089cf' );
             }
            }
@@ -59,66 +118,11 @@ const CreateGuestAccount = ({ history }) => {
         }
       };
 
-    const guestCreation = () => {
-        let name = document.getElementById("name").value
-        let email = document.getElementById("email").value
-        let telephone = document.getElementById("telephone").value
-        let password = document.getElementById("password").value
-        let descripción = document.getElementById("descripción").value
-        
-
-        let cine=document.getElementById("cine").checked
-        let literature=document.getElementById("literature").checked
-        let sports=document.getElementById("sports").checked
-        let party=document.getElementById("party").checked
-        let study=document.getElementById("study").checked
-        let music=document.getElementById("music").checked
-        let friends=document.getElementById("friends").checked
-        let travels=document.getElementById("travels").checked
-        let art=document.getElementById("art").checked
-        let work=document.getElementById("work").checked
-
+    const guestCreation =() => {
         singleFileUploadHandler()
 
-        let guestData = {
-            "email": email,
-            "password": password,
-            "phone": telephone,
-            "name": name,
-            "avatar": "https://letsroomie.s3.us-east-2.amazonaws.com/defualtImage-1601429025283.png",
-            "isHost": false,
-            "about": descripción,
-            "movietheater": cine,
-            "literature": literature,
-            "sports": sports,
-            "parties": party,
-            "study": study,
-            "music": music,
-            "friends": friends,
-            "travel": travels,
-            "art": art,
-            "work": work
-        }
-        //console.log(guestData)
-        
-        fetch('https://api-letsroomie.herokuapp.com/createUser', {
-            method: 'POST',
-            body: JSON.stringify(guestData),
-            headers: {
-                'Content-Type': 'application/json'
-            }
-        })
-            .then(res => res.json())
-            .then(response => {
-                //console.log(response)
-                if (response.error === "") {
-                    Swal.fire("Registro exitoso")
-                    history.push("/login")
-                } else {
-                    Swal.fire("Registro no exitoso")
-                }
-            });
     }
+    
     return (
         <>
             <LogoHeader />
