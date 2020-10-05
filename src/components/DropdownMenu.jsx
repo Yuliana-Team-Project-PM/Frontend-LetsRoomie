@@ -14,7 +14,7 @@ const DropdownMenu = () => {
     const showMenu = () => setIsActive(!isActive);
     const API=`https://api-letsroomie.herokuapp.com/user/${sessionStorage.getItem('userEmail')}`
     const userInfo=useRoomCardinfo(API)
-    console.log(userInfo)
+    //console.log(userInfo)
     userInfo.body.map(item=>
         name=item.name
     )

@@ -1,5 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { withRouter } from 'react-router-dom';
+import axios from 'axios';
+
 import LogoHeader from '../components/LogoHeader';
 import VerticalBanner from '../components/VerticalBanner';
 import '../assets/styles/components/CreateGuestAccount.scss';
@@ -9,13 +11,60 @@ import Interest from '../components/Interest';
 
 
 const CreateGuestAccount = ({ history }) => {
+    const [selectedFile, setSelectedFile] = useState()
+    const singleFileChangedHandler = ( event ) => {
+        setSelectedFile(event.target.files[0])
+       };
+
+    const singleFileUploadHandler = (  ) => {
+        const data = new FormData();
+      // If file selected
+        if ( selectedFile ) {
+      data.append( 'profileImage', selectedFile, selectedFile.name );
+      axios.post( 'https://api-letsroomie.herokuapp.com/api/profile/avatarUpload', data, {
+          headers: {
+           'accept': 'application/json',
+           'Accept-Language': 'en-US,en;q=0.8',
+           'Content-Type': `multipart/form-data; boundary=${data._boundary}`,
+          }
+         })
+          .then( ( response ) => {
+            alert("respuesta")
+      if ( 200 === response.status ) {
+            // If file size is larger than expected.
+            if( response.data.error ) {
+             if ( 'LIMIT_FILE_SIZE' === response.data.error.code ) {
+              ocShowAlert( 'Max size: 2MB', 'red' );
+             } else {
+              console.log( response.data );
+      // If not the given file type
+              ocShowAlert( response.data.error, 'red' );
+             }
+            } else {
+             // Success
+             let fileName = response.data;
+             console.log( 'fileName', fileName );
+             ocShowAlert( 'File Uploaded', '#3089cf' );
+            }
+           }
+          }).catch( ( error ) => {
+          // If another error
+          ocShowAlert( error, 'red' );
+         });
+        } else {
+         // if file not selected throw error
+         ocShowAlert( 'Please upload file', 'red' );
+        }
+      };
+
     const guestCreation = () => {
         let name = document.getElementById("name").value
         let email = document.getElementById("email").value
         let telephone = document.getElementById("telephone").value
         let password = document.getElementById("password").value
-
         let descripción = document.getElementById("descripción").value
+        
+        singleFileUploadHandler()
 
         let guestData = {
             "email": email,
@@ -37,6 +86,7 @@ const CreateGuestAccount = ({ history }) => {
             "i10": true
         }
         console.log(guestData)
+        
         fetch('https://api-letsroomie.herokuapp.com/createUser', {
             method: 'POST',
             body: JSON.stringify(guestData),
@@ -75,7 +125,7 @@ const CreateGuestAccount = ({ history }) => {
                         <label htmlFor="">Descripción</label>
                         <input id="descripción" type="text" />
                         <div className="CreateGuestAccount__fields--interest">
-                            <Interest topic='Cine' />
+                            <Interest topic='Cine'/>
                             <Interest topic='Literatura' />
                             <Interest topic='Deporte' />
                             <Interest topic='Fiestas' />
@@ -87,7 +137,7 @@ const CreateGuestAccount = ({ history }) => {
                             <Interest topic='Trabajo' />
                         </div>
                         <label>Foto de perfil</label>
-                        <input type="file" name="file" />
+                        <input type="file" onChange={singleFileChangedHandler}/>
 
                         <button type="button" className='Login__card--button' onClick={guestCreation}>Crear cuenta</button>
                     </form>

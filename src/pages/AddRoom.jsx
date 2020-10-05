@@ -6,14 +6,16 @@ import Footer from '../components/Footer';
 
 const AddRoom = () => {
     const saveRoom=()=>{
+    let idUser=sessionStorage.getItem('idUser')
+    console.log(idUser)
     let newRoom={
             "namePlace": "Gran Apartamento",
-            "location": "Zona norte",
-            "city": "Bogotá",
+            "location": "Zona sur",
+            "city": "Medellín",
             "images": [
               "string"
             ],
-            "price": 5000,
+            "price": 8000,
             "available": true,
             "furniture": [
               "string"
@@ -26,8 +28,9 @@ const AddRoom = () => {
             "closet": true,
             "size": 150,
             "description": "Hermoso apartamento de 2 habitaciones, con vista al mar",
-            "user": "string"
+            "user":idUser
           }
+    console.log(newRoom)
           let Token=sessionStorage.getItem('Token')
           fetch(`https://api-letsroomie.herokuapp.com/place`, {
             method: "POST",

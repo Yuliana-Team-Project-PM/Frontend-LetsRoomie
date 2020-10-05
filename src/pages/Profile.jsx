@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link,withRouter } from 'react-router-dom';
 
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
@@ -8,7 +9,7 @@ import Interest from '../components/Interest';
 
 import '../assets/styles/components/PerfilEdit.scss';
 
-const Profile = () => {
+const Profile = ({history}) => {
     const [selectedFile, setSelectedFile] = useState()
     const onChangeHandler = event => {
         setSelectedFile(event.target.files[0])
@@ -16,12 +17,19 @@ const Profile = () => {
 
     const onClickHandler = () => {
         const data = new FormData()
-        data.append('galleryImage ', btoa(selectedFile))
-        fetch("https://api-letsroomie.herokuapp.com/api/profile/multipleUpload", {
+        data.append('file', selectedFile)
+        fetch("https://api-letsroomie.herokuapp.com/api/profile/avatarUpload", {
             method: "POST",
+            headers:{
+                'Content-Type': 'multipart/form-data'
+            },
             body: data
+          })
+          .then(res => res.json())
+          .catch(error => console.error('Error:', error))
+          .then(response => {
+              console.log(response)
           });
-
         // Envío de datos
         let idUser=sessionStorage.getItem('idUser')
         let nombre=document.getElementById("nombre").value
@@ -31,13 +39,13 @@ const Profile = () => {
         let comentarios=document.getElementById("comentarios").value
 
         let updateUser={
-            "email": {email},
-            "password": {contraseña},
-            "phone": {telefono},
-            "name": {nombre},
+            "email": email,
+            "password": contraseña,
+            "phone": telefono,
+            "name": nombre,
             "avatar": "string",
             "isHost": true,
-            "about": {comentarios},
+            "about": comentarios,
             "i1": true,
             "i2": true,
             "i3": true,
@@ -49,8 +57,8 @@ const Profile = () => {
             "i9": true,
             "i10": true
         }
-        console.log(updateUser)
-        console.log(`https://api-letsroomie.herokuapp.com/users/${idUser}`)
+        //console.log(updateUser)
+        //console.log(`https://api-letsroomie.herokuapp.com/users/${idUser}`)
         fetch(`https://api-letsroomie.herokuapp.com/users/${idUser}`, {
             method: "PUT",
             headers: {
@@ -58,6 +66,8 @@ const Profile = () => {
                },
             body: JSON.stringify(updateUser)
           });
+        history.push("/")
+        
           
     }
 
@@ -113,4 +123,4 @@ const Profile = () => {
     );
 };
 
-export default Profile;
+export default withRouter(Profile);

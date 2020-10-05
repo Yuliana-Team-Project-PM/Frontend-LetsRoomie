@@ -15,7 +15,6 @@ const RoomCard = ({images,description,namePlace,location,to,price,user,_id}) => 
     const API=`https://api-letsroomie.herokuapp.com/user/${email}`
     const userData=useRoomCardinfo(API)
     let idUser
-    console.log("data: "+userData.body)
     userData.body.map(item=>{
         idUser=item._id
         sessionStorage.setItem('idUser',idUser)
@@ -47,6 +46,7 @@ const RoomCard = ({images,description,namePlace,location,to,price,user,_id}) => 
                     .catch(error => console.error('Error:', error))
                     .then(response => {
                         console.log(response)
+                        Swal.fire("Retirado de la lista de favoritos")
                     });
 
                 
@@ -72,8 +72,12 @@ const RoomCard = ({images,description,namePlace,location,to,price,user,_id}) => 
                     .catch(error => console.error('Error:', error))
                     .then(response => {
                         console.log(response)
-                        sessionStorage.setItem('favId', response.body._id)
-                        Swal.fire("Agregado a favoritos")
+                        if(response.error==="Place and user already exist"){
+                            Swal.fire("Ya la tienes en tu lista de favoritos")
+                        }else{
+                            sessionStorage.setItem('favId', response.body._id)
+                            Swal.fire("Agregado a favoritos")
+                        }
                     });
                 
             }
