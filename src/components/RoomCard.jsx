@@ -15,7 +15,7 @@ const RoomCard = ({ images, description, namePlace, location, to, price, user, _
     const API = `https://api-letsroomie.herokuapp.com/user/${email}`
     const userData = useRoomCardinfo(API)
     let idUser
-    console.log("data: " + userData.body)
+    // console.log("data: " + userData.body)
     userData.body.map(item => {
         idUser = item._id
         sessionStorage.setItem('idUser', idUser)
