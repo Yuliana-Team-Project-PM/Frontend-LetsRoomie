@@ -78,16 +78,46 @@ const CreateHostAccount = (history) => {
                         <input id="descripción" type="text" />
                         <label>Intereses</label>
                         <div className="CreateGuestAccount__fields--interest">
-                            <Interest topic='Cine' />
-                            <Interest topic='Literatura' />
-                            <Interest topic='Deporte' />
-                            <Interest topic='Fiestas' />
-                            <Interest topic='Estudio' />
-                            <Interest topic='Música' />
-                            <Interest topic='Amigos' />
-                            <Interest topic='Fiestas' />
-                            <Interest topic='Arte' />
-                            <Interest topic='Trabajo' />
+                            <label className="CreateGuestAccount__fields--interest-label">
+                                <input type="checkbox" id="cine" value="" />
+                                Cine
+                            </label>
+                            <label className="CreateGuestAccount__fields--interest-label">
+                                <input type="checkbox" id="literature" value="" />
+                                Literatura
+                            </label>
+                            <label className="CreateGuestAccount__fields--interest-label">
+                                <input type="checkbox" id="sports" value="" />
+                                Deporte
+                            </label>
+                            <label className="CreateGuestAccount__fields--interest-label">
+                                <input type="checkbox" id="party" value="" />
+                                Fiestas
+                            </label>
+                            <label className="CreateGuestAccount__fields--interest-label">
+                                <input type="checkbox" id="study" value="" />
+                                Estudio
+                            </label>
+                            <label className="CreateGuestAccount__fields--interest-label">
+                                <input type="checkbox" id="music" value="" />
+                                Música
+                            </label>
+                            <label className="CreateGuestAccount__fields--interest-label">
+                                <input type="checkbox" id="friends" value="" />
+                                Amigos
+                            </label>
+                            <label className="CreateGuestAccount__fields--interest-label">
+                                <input type="checkbox" id="travels" value="" />
+                                Viajes
+                            </label>
+                            <label className="CreateGuestAccount__fields--interest-label">
+                                <input type="checkbox" id="art" value="" />
+                                Arte
+                            </label>
+                            <label className="CreateGuestAccount__fields--interest-label">
+                                <input type="checkbox" id="work" value="" />
+                                Trabajo
+                            </label>
                         </div>
                         <label>Foto de perfil</label>
                         <input type="file" name="file" />

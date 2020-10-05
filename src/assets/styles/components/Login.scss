@@ -49,7 +49,7 @@
     }
 }
 
-@media screen and (max-width: 425px) {
+@media screen and (max-width: 426px) {
     .Login {
         @include container(350px);
 
@@ -68,7 +68,7 @@
     }
 }
 
-@media screen and (max-width: 375px) {
+@media screen and (max-width: 376px) {
     .Login {
         @include container(300px);
 
@@ -82,7 +82,7 @@
     }
 }
 
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 321px) {
     .Login {
         @include container(275px);
 

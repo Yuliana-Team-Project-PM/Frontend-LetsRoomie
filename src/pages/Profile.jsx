@@ -24,20 +24,26 @@ const Profile = ({history}) => {
                 'Content-Type': 'multipart/form-data'
             },
             body: data
+<<<<<<< HEAD
           })
           .then(res => res.json())
           .catch(error => console.error('Error:', error))
           .then(response => {
               console.log(response)
           });
-        // Envío de datos
-        let idUser=sessionStorage.getItem('idUser')
-        let nombre=document.getElementById("nombre").value
-        let email=document.getElementById("email").value
-        let contraseña=document.getElementById("contraseña").value
-        let telefono=document.getElementById("telefono").value
-        let comentarios=document.getElementById("comentarios").value
+=======
+        });
 
+>>>>>>> 53989f9c8900dfdc46520344e7ac1b726d6550fe
+        // Envío de datos
+        let idUser = sessionStorage.getItem('idUser')
+        let nombre = document.getElementById("nombre").value
+        let email = document.getElementById("email").value
+        let contraseña = document.getElementById("contraseña").value
+        let telefono = document.getElementById("telefono").value
+        let comentarios = document.getElementById("comentarios").value
+
+<<<<<<< HEAD
         let updateUser={
             "email": email,
             "password": contraseña,
@@ -46,6 +52,16 @@ const Profile = ({history}) => {
             "avatar": "string",
             "isHost": true,
             "about": comentarios,
+=======
+        let updateUser = {
+            "email": { email },
+            "password": { contraseña },
+            "phone": { telefono },
+            "name": { nombre },
+            "avatar": "string",
+            "isHost": true,
+            "about": { comentarios },
+>>>>>>> 53989f9c8900dfdc46520344e7ac1b726d6550fe
             "i1": true,
             "i2": true,
             "i3": true,
@@ -63,12 +79,17 @@ const Profile = ({history}) => {
             method: "PUT",
             headers: {
                 'Content-type': 'application/json; charset=UTF-8'
-               },
+            },
             body: JSON.stringify(updateUser)
+<<<<<<< HEAD
           });
         history.push("/")
         
           
+=======
+        });
+
+>>>>>>> 53989f9c8900dfdc46520344e7ac1b726d6550fe
     }
 
 
@@ -81,39 +102,70 @@ const Profile = ({history}) => {
                     <h2>Edita tu perfil</h2>
                 </div>
                 <div className="PerfilEdit__photo">
-                    <p>Foto de perfil:</p>
+                    {/* <p>Foto de perfil:</p> */}
                     <img src="https://resizer.codigounico.com/resizer/resizer.php?imagen=https://www.codigounico.com/wp-content/uploads/sites/2/2020/01/las-mujeres-mas-sexys-de-instagram-en-2020-2.jpg&nuevoancho=750&crop=0" alt="foto de perfil" />
                     <input type="file" name="file" onChange={onChangeHandler} />
                 </div>
-                <label htmlFor="">Nombre:</label>
-                <input type="text" name="" id="nombre" />
-                <label htmlFor="">Email:</label>
-                <input type="text" id="email"/>
-                <label htmlFor="">Contraseña</label>
-                <input type="password" id="contraseña"/>
-                <label htmlFor="">Teléfono</label>
-                <input type="password" id="telefono"/>
-                <div className="PerfilEdit__PersonalDesc">
-                    <label htmlFor="">
-                        Descripción personal:
-                        </label>
-                    <textarea name="comentarios" rows="10" cols="30" id="comentarios"></textarea>
-                </div>
-                <label htmlFor="">Elige tus intereses:</label>
-                <div className="PerfilEdit__interest">
-                    <Interest topic='Cine' />
-                    <Interest topic='Literatura' />
-                    <Interest topic='Deporte' />
-                    <Interest topic='Fiestas' />
-                    <Interest topic='Estudio' />
-                    <Interest topic='Música' />
-                    <Interest topic='Amigos' />
-                    <Interest topic='Fiestas' />
-                    <Interest topic='Arte' />
-                    <Interest topic='Trabajo' />
-                </div>
+                <div className="PerfilEdit__text">
+                    <label htmlFor="">Nombre:</label>
+                    <input type="text" name="" id="" />
+                    <label htmlFor="">Email:</label>
+                    <input type="text" />
+                    <label htmlFor="">Contraseña:</label>
+                    <input type="password" />
+                    <div className="PerfilEdit__PersonalDesc">
+                        <label htmlFor="">
+                            Descripción personal:
+                            </label>
+                        <textarea name="comentarios" rows="10" cols="30"></textarea>
+                    </div>
+                    <label htmlFor="">Elige tus intereses:</label>
+                    <div className="PerfilEdit__interest">
+                        <label className="PerfilEdit__interest--item">
+                            <input type="checkbox" id="cine" value="" />
+                                Cine
+                            </label>
+                        <label className="PerfilEdit__interest--item">
+                            <input type="checkbox" id="literature" value="" />
+                                Literatura
+                            </label>
+                        <label className="PerfilEdit__interest--item">
+                            <input type="checkbox" id="sports" value="" />
+                                Deporte
+                            </label>
+                        <label className="PerfilEdit__interest--item">
+                            <input type="checkbox" id="party" value="" />
+                                Fiestas
+                            </label>
+                        <label className="PerfilEdit__interest--item">
+                            <input type="checkbox" id="study" value="" />
+                                Estudio
+                            </label>
+                        <label className="PerfilEdit__interest--item">
+                            <input type="checkbox" id="music" value="" />
+                                Música
+                            </label>
+                        <label className="PerfilEdit__interest--item">
+                            <input type="checkbox" id="friends" value="" />
+                                Amigos
+                            </label>
+                        <label className="PerfilEdit__interest--item">
+                            <input type="checkbox" id="travels" value="" />
+                                Viajes
+                            </label>
+                        <label className="PerfilEdit__interest--item">
+                            <input type="checkbox" id="art" value="" />
+                                Arte
+                            </label>
+                        <label className="PerfilEdit__interest--item">
+                            <input type="checkbox" id="work" value="" />
+                                Trabajo
+                            </label>
+                    </div>
 
-                <button className='PerfilEdit__button' onClick={onClickHandler}>Guardar</button>
+                    <button className='PerfilEdit__button' onClick={onClickHandler}>Guardar</button>
+
+                </div>
 
             </section>
             <FavoriteButton />

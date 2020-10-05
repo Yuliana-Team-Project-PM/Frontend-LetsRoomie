@@ -8,13 +8,13 @@
     }
 }
 
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 1025px) {
     .Favorites {
         @include container(850px);
     }
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 769px) {
     .Favorites {
         @include container(660px);
         
@@ -24,7 +24,7 @@
     }
 }
 
-@media screen and (max-width: 425px) {
+@media screen and (max-width: 426px) {
     .Favorites {
         @include container(370px);
         
@@ -34,7 +34,7 @@
     }
 }
 
-@media screen and (max-width: 375px) {
+@media screen and (max-width: 376px) {
     .Favorites {
         @include container(335px);
         
@@ -44,7 +44,7 @@
     }
 }
 
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 321px) {
     .Favorites {
         @include container(285px);
     }

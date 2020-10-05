@@ -125,6 +125,7 @@ const CreateGuestAccount = ({ history }) => {
                         <label htmlFor="">Descripción</label>
                         <input id="descripción" type="text" />
                         <div className="CreateGuestAccount__fields--interest">
+<<<<<<< HEAD
                             <Interest topic='Cine'/>
                             <Interest topic='Literatura' />
                             <Interest topic='Deporte' />
@@ -135,6 +136,48 @@ const CreateGuestAccount = ({ history }) => {
                             <Interest topic='Fiestas' />
                             <Interest topic='Arte' />
                             <Interest topic='Trabajo' />
+=======
+                            <label className="CreateGuestAccount__fields--interest-label">
+                                <input type="checkbox" id="cine" value="" />
+                                Cine
+                            </label>
+                            <label className="CreateGuestAccount__fields--interest-label">
+                                <input type="checkbox" id="literature" value="" />
+                                Literatura
+                            </label>
+                            <label className="CreateGuestAccount__fields--interest-label">
+                                <input type="checkbox" id="sports" value="" />
+                                Deporte
+                            </label>
+                            <label className="CreateGuestAccount__fields--interest-label">
+                                <input type="checkbox" id="party" value="" />
+                                Fiestas
+                            </label>
+                            <label className="CreateGuestAccount__fields--interest-label">
+                                <input type="checkbox" id="study" value="" />
+                                Estudio
+                            </label>
+                            <label className="CreateGuestAccount__fields--interest-label">
+                                <input type="checkbox" id="music" value="" />
+                                Música
+                            </label>
+                            <label className="CreateGuestAccount__fields--interest-label">
+                                <input type="checkbox" id="friends" value="" />
+                                Amigos
+                            </label>
+                            <label className="CreateGuestAccount__fields--interest-label">
+                                <input type="checkbox" id="travels" value="" />
+                                Viajes
+                            </label>
+                            <label className="CreateGuestAccount__fields--interest-label">
+                                <input type="checkbox" id="art" value="" />
+                                Arte
+                            </label>
+                            <label className="CreateGuestAccount__fields--interest-label">
+                                <input type="checkbox" id="work" value="" />
+                                Trabajo
+                            </label>
+>>>>>>> 53989f9c8900dfdc46520344e7ac1b726d6550fe
                         </div>
                         <label>Foto de perfil</label>
                         <input type="file" onChange={singleFileChangedHandler}/>
