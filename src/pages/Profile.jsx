@@ -175,7 +175,7 @@ const Profile = ({history}) => {
                         <label className="PerfilEdit__interest--item">
                             <input type="checkbox" id="literature" value="" />
                                 Literatura
-                            </label>
+                        </label>
                         <label className="PerfilEdit__interest--item">
                             <input type="checkbox" id="sports" value="" />
                                 Deporte
